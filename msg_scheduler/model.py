@@ -286,7 +286,7 @@ class VirtualLink(NamedObj):
 class Application(NamedObj):
     """代表运行在一个节点上的应用程序
     一个应用程序可以包含多条虚链路
-    并在其生命周期内发送多个数据帧
+    并在其生命周期内发送一个数据帧
     """
 
     def __init__(self, network: Network, name: str, sender_node_name: str):

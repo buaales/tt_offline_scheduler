@@ -2,13 +2,13 @@
 
 from msg_scheduler import model
 
-class Task(model.NamedObj):
+class Task(model.Application):
     """端节点上的可执行任务"""
 
-    def __init__(self, name: str, node_id: int, task_id: int):
-        super().__init__(name)
-        self._node_id = node_id
-        self._task_id = task_id
+    def __init__(self, network: model.Network, name: str, node_name: str):
+        super().__init__(network, name, node_name)
+    # period
+    # Application already has period.
     # offset
     @property
     def offest(self) -> int:
@@ -22,33 +22,27 @@ class Task(model.NamedObj):
         return self._wcet
     @wcet.setter
     def wcet(self, wcet:int):
-        self._wect = wcet
+        self._wcet = wcet
     # deadline
     @property
     def deadline(self) -> int:
         return self._deadline
     @deadline.setter
     def deadline(self, deadline: int):
-        self.deadline = deadline
-    #peroid
-    @property
-    def peroid(self) -> int:
-        return self._peroid
-    @peroid.setter
-    def peroid(self, peroid:int):
-        self._peroid = peroid
+        self._deadline = deadline
+    
 
 class FreeTask(Task):
     """通信无关的实时任务"""
 
-    def __init__(self, name: str, node_id: int, task_id: int):
-        super().__init__(name, node_id, task_id)
+    def __init__(self, network: model.Network, name: str, node_name: str):
+        super().__init__(network, name, node_name)
 
 class CommTask(Task):
     """通信类是实时任务"""
 
-    def __init__(self, name: str, node_id: int, task_id: int):
-        super().__init__(name, node_id, task_id)
+    def __init__(self, network: model.Network, name: str, node_name: str):
+        super().__init__(network, name, node_name)
 
     @property
     def delta(self) -> float:
@@ -60,19 +54,19 @@ class CommTask(Task):
 class ProducerTask(CommTask):
     """生产者实时通信类任务"""
 
-    def __init__(self, name: str, node_id: int, task_id: int):
-        super().__init__(name, node_id, task_id)
+    def __init__(self, network: model.Network, name: str, node_name: str):
+        super().__init__(network, name, node_name)
 
 
 class CustomerTask(CommTask):
     """消费者实时通信类任务"""
 
-    def __init__(self, name: str, node_id: int, task_id: int):
-        super().__init__(name, node_id, task_id)
+    def __init__(self, network: model.Network, name: str, node_name: str):
+        super().__init__(network, name, node_name)
 
 
 class ShaperTask(CommTask):
     """Shaper实时通信类任务"""
 
-    def __init__(self, name: str, node_id: int, task_id: int):
-        super().__init__(name, node_id, task_id)
+    def __init__(self, network: model.Network, name: str, node_name: str):
+        super().__init__(network, name, node_name)
