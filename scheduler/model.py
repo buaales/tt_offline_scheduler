@@ -11,10 +11,10 @@ class Task(model.Application):
     # Application already has period.
     # offset
     @property
-    def offest(self) -> int:
+    def offset(self) -> int:
         return self._offset
     @offset.setter
-    def offset(self, offset:int):
+    def offset(self, offset: int):
         self._offset = offset
     # wcet
     @property
