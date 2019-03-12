@@ -91,9 +91,9 @@ def gen_network_into_file(net_type: int, start_idx, end_idx):
 if __name__ == "__main__":
     print('Parent process %s.' % os.getpid())
     p = Pool(4)
-    size = 300 / 4
+    size = 300 // 4
     for i in range(4):
-        p.apply_async(gen_network_into_file, args=(2, size * i, size*(i+1)))
+        p.apply_async(gen_network_into_file, args=(2, size*i, size*(i+1)))
     print('Waiting for all subprocesses done...')
     p.close()
     p.join()
