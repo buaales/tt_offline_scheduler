@@ -55,7 +55,7 @@ def gen_network_small(network: mmodel.Network, idx: int):
             nei = list(g.neighbors(n))
             if len(nei) == 1:
                 enode_num += 1
-    print("get one wiht endnode_num %d" % enode_num)
+    print("get one with endnode_num %d" % enode_num)
     # 1.1 write into file
     networkx.readwrite.graphml.write_graphml(g, 
         "./output/graph_small_gen/graph_{}.graphml".format(idx))
@@ -82,9 +82,9 @@ def gen_network_into_file(net_type: int, start_idx, end_idx):
     while idx < end_idx:
         start = time.time()
         gen_network(net_type, idx)
-        idx += 1
         stop = time.time()
-        print("idx %d spend time: %f" % (idx, (stop - start)) )
+        print("idx %d spend time: %f" % (idx, (stop - start)))
+        idx += 1
 
 # 生成文本格式的图存储到文件中
 
