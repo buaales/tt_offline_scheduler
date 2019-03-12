@@ -54,7 +54,7 @@ def gen_model(periods: int, utilization: float, granuolarity: int, net_type: int
         print("[Benchmark Gen][ERR]: Unkown network type")
         return
     
-    network: mmodel.Network = gen_network(path)
+    network: mmodel.Network = gen_network_from_file(path)
     
     # 2. Gen App Sets
     # 遍历 Node节点生成任务集合
