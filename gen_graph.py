@@ -20,7 +20,7 @@ def gen_network_large(network: mmodel.Network, idx: int):
         for n in g.nodes():
             if networkx.degree(g, n) == 1:
                 enode_num += 1
-    # print("get one wiht endnode_num %d" % enode_num)
+    print("get one wiht endnode_num %d" % enode_num)
     # 1.1 write into file
     networkx.readwrite.graphml.write_graphml(g, 
         "./output/graph_large_gen/graph_{}.graphml".format(idx))
@@ -90,9 +90,10 @@ def gen_network_into_file(net_type: int, start_idx, end_idx):
 
 if __name__ == "__main__":
     print('Parent process %s.' % os.getpid())
-    p = Pool(4)
-    for i in range(5):
-        p.apply_async(gen_network_into_file, args=(2, 75 * i, 75*(i+1)))
+    p = Pool(5)
+    size = 300 / 5
+    for i in range(6):
+        p.apply_async(gen_network_into_file, args=(2, size * i, size*(i+1)))
     print('Waiting for all subprocesses done...')
     p.close()
     p.join()
