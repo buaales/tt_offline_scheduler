@@ -15,7 +15,7 @@ def gen_network_large(network: mmodel.Network, idx: int):
     enode_num = 0
     while enode_num < 40:
         enode_num = 0
-        g = networkx.generators.random_tree(64)
+        g = networkx.generators.random_tree(72)
         # check the number of end-node
         for n in g.nodes():
             if networkx.degree(g, n) == 1:
