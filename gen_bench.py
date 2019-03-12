@@ -19,9 +19,9 @@ def gen_network_from_file(path: str):
     for n in g.nodes():
         nei = list(g.neighbors(n))
         if len(nei) == 1:
-            new_node = mmodel.EndNode(f'app_{n}')
+            new_node = mmodel.EndNode(f'node_{n}')
         else:
-            new_node = mmodel.SwitchNode(f'msg_{n}')
+            new_node = mmodel.SwitchNode(f'switch_{n}')
         network.add_node(new_node)
         node_name_map[n] = new_node.name
     for e in g.edges:
