@@ -13,7 +13,7 @@ from scheduler import model as tmodel
 def gen_network_large(network: mmodel.Network, idx: int):
     # 1. generate a random tree and select one with 8 end-node
     enode_num = 0
-    while enode_num < 40:
+    while enode_num != 42:
         enode_num = 0
         g = networkx.generators.random_tree(72)
         # check the number of end-node
@@ -90,9 +90,9 @@ def gen_network_into_file(net_type: int, start_idx, end_idx):
 
 if __name__ == "__main__":
     print('Parent process %s.' % os.getpid())
-    p = Pool(5)
-    size = 300 / 5
-    for i in range(6):
+    p = Pool(4)
+    size = 300 / 4
+    for i in range(4):
         p.apply_async(gen_network_into_file, args=(2, size * i, size*(i+1)))
     print('Waiting for all subprocesses done...')
     p.close()

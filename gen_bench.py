@@ -71,13 +71,11 @@ if __name__ == "__main__":
 '''
 
 # 测试生成的图是否合格
-'''
 if __name__ == "__main__":
     idx = random.randint(0, 100)
-    file_name = './output/graph_medium_gen/graph_{}.graphml'.format(idx)
+    file_name = './output/graph_large_gen/graph_{}.graphml'.format(75.0)
     g = networkx.readwrite.graphml.read_graphml(file_name)
     #g = networkx.complete_graph(5)
     print("draw graph_%d" % idx)
     networkx.draw_networkx(g)
     plt.show()
-'''
