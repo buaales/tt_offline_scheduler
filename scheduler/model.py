@@ -9,13 +9,13 @@ class Task(model.Application):
         super().__init__(network, name, node_name)
     # period
     # Application already has period.
-    # offset
+    # offset0
     @property
-    def offset(self) -> int:
-        return self._offset
-    @offset.setter
-    def offset(self, offset: int):
-        self._offset = offset
+    def offset0(self) -> int:
+        return self._offset0
+    @offset0.setter
+    def offset0(self, offset0: int):
+        self._offset0 = offset0
     # wcet
     @property
     def wcet(self) -> int:
@@ -23,13 +23,13 @@ class Task(model.Application):
     @wcet.setter
     def wcet(self, wcet:int):
         self._wcet = wcet
-    # deadline
+    # deadline0
     @property
-    def deadline(self) -> int:
-        return self._deadline
-    @deadline.setter
-    def deadline(self, deadline: int):
-        self._deadline = deadline
+    def deadline0(self) -> int:
+        return self._deadline0
+    @deadline0.setter
+    def deadline0(self, deadline0: int):
+        self._deadline0 = deadline0
     
 
 class FreeTask(Task):
@@ -58,7 +58,7 @@ class ProducerTask(CommTask):
         super().__init__(network, name, node_name)
 
 
-class CustomerTask(CommTask):
+class ConsumerTask(CommTask):
     """消费者实时通信类任务"""
 
     def __init__(self, network: model.Network, name: str, node_name: str):
