@@ -13,16 +13,16 @@ from scheduler import model as tmodel
 def gen_network_large(network: mmodel.Network, idx: int):
     # 1. generate a random tree and select one with 8 end-node
     enode_num = 0
-    while enode_num < 40:
+    while enode_num < 42:
         enode_num = 0
         g = networkx.generators.random_tree(72)
         # check the number of end-node
         for n in g.nodes():
             if networkx.degree(g, n) == 1:
                 enode_num += 1
-    print("get one wiht endnode_num %d" % enode_num)
+    print("Get one with endnode_num %d, index %d" % (enode_num, idx))
     # 1.1 write into file
-    networkx.readwrite.graphml.write_graphml(g, 
+    networkx.readwrite.graphml.write_graphml(g,
         "./output/graph_large_gen/graph_{}.graphml".format(idx))
 
     return
@@ -37,9 +37,9 @@ def gen_network_medium(network: mmodel.Network, idx: int):
         for n in g.nodes():
             if networkx.degree(g, n) == 1:
                 enode_num += 1
-    print("get one wiht endnode_num %d" % enode_num)
+    print("Get one with endnode_num %d, index %d" % enode_num, idx)
     # 1.1 write into file
-    networkx.readwrite.graphml.write_graphml(g, 
+    networkx.readwrite.graphml.write_graphml(g,
         "./output/graph_medium_gen/graph_{}.graphml".format(idx))
 
     return
@@ -55,9 +55,9 @@ def gen_network_small(network: mmodel.Network, idx: int):
             nei = list(g.neighbors(n))
             if len(nei) == 1:
                 enode_num += 1
-    print("get one with endnode_num %d" % enode_num)
+    print("Get one with endnode_num %d, index %d" % enode_num, idx)
     # 1.1 write into file
-    networkx.readwrite.graphml.write_graphml(g, 
+    networkx.readwrite.graphml.write_graphml(g,
         "./output/graph_small_gen/graph_{}.graphml".format(idx))
 
     return
@@ -83,7 +83,7 @@ def gen_network_into_file(net_type: int, start_idx, end_idx):
         start = time.time()
         gen_network(net_type, idx)
         stop = time.time()
-        print("idx %d spend time: %f" % (idx, (stop - start)))
+        print("index %d spent time: %.2f" % (idx, (stop - start)))
         idx += 1
 
 # 生成文本格式的图存储到文件中
@@ -92,8 +92,9 @@ if __name__ == "__main__":
     print('Parent process %s.' % os.getpid())
     p = Pool(4)
     size = 300 // 4
+    start_idx = 300
     for i in range(4):
-        p.apply_async(gen_network_into_file, args=(2, size*i, size*(i+1)))
+        p.apply_async(gen_network_into_file, args=(2, start_idx+size*i, start_idx+size*(i+1)))
     print('Waiting for all subprocesses done...')
     p.close()
     p.join()

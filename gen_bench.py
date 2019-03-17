@@ -33,13 +33,14 @@ def gen_network_from_file(path: str):
 
 def gen_task_set_for_each_node(network, node, periods, utilization):
     '''
-    每个节点12个任务：6个free,2个producer，2个customer和2个shaper
+    必须在gen_virtual_link之后调用
+    每个节点12个任务：7个free,2个producer，2个customer和1个shaper
     每个任务的周期从periods中随机选择
     节点总的利用率为utilization
     '''
     # 1. 初始化任务集
     tasks = []
-    for i in range(6):
+    for i in range(7):
         # print("Init FreeTask {} in node {}".format(
         #    '{}_{}'.format(node.name, i), node.name
         #))
@@ -47,7 +48,8 @@ def gen_task_set_for_each_node(network, node, periods, utilization):
             f'{node.name}_{i}', node.name)
         task.period = random.choice(periods)
         tasks.append(task)
-    for i in range(6, 8):
+    # 通信相关任务不应该在此初始化周期，因为通信依赖的任务要求同周期
+    for i in range(7, 9):
         #print("Init ProdTask {} in node {}".format(
         #    '{}_{}'.format(node.name, i), node.name
         #))
@@ -55,7 +57,7 @@ def gen_task_set_for_each_node(network, node, periods, utilization):
             f'{node.name}_{i}', node.name)
         task.period = random.choice(periods)
         tasks.append(task)
-    for i in range(8, 10):
+    for i in range(9, 11):
         #print("Init CustTask {} in node {}".format(
         #    '{}_{}'.format(node.name, i), node.name
         #))
@@ -63,7 +65,7 @@ def gen_task_set_for_each_node(network, node, periods, utilization):
             f'{node.name}_{i}', node.name)
         task.period = random.choice(periods)
         tasks.append(task)
-    for i in range(10, 12):
+    for i in range(11, 12):
         #print("Init ShapTask {} in node {}".format(
         #    '{}_{}'.format(node.name, i), node.name
         #))
@@ -92,6 +94,28 @@ def gen_task_set_for_each_node(network, node, periods, utilization):
 
     return tasks
     
+def gen_virtual_links(task_dict, network: mmodel.Network):
+    '''
+    生成虚链路
+    '''
+    # 1. 遍历所有节点，对每两对节点进行处理
+    node_num = len(network.end_nodes)
+    # 验证端节点个数为偶数
+    assert node_num % 2 == 0, '端节点个数不为偶数！'
+    for i in range(node_num // 2):
+        _node_1 = network[f'node_{}'.format(i)]
+        _node_2 = network[f'node_{}'.format(i+node_num//2)]
+        # 2. Map:
+        # node_1_p_1 --> node_2_s_1 --> node_1_c_1
+        # node_2_p_1 --> node_1_s_1 --> node_2_c_1
+        # node_1_p_2       -->          node_2_c_2
+        # node_2_p_2       -->          node_1_c_1
+        _task_list_1 = task_dict[_node_1]
+        _task_list_2 = task_dict[_node_2]
+        # 2.1
+        _task_list_1[7].set_virtual_link(_task_list_2[11])
+
+
 
 def gen_model(periods: int, utilization: float, granuolarity: int, net_type: int, times: int):
     '''
@@ -123,12 +147,12 @@ def gen_model(periods: int, utilization: float, granuolarity: int, net_type: int
     
     # 2. Gen App Sets
     # 遍历 Node节点生成任务集合
-    #task_sets = gen_task_set(periods, utilization, granuolarity)
+    task_dict = {}
     for node in network.end_nodes:
-        gen_task_set_for_each_node(network, node, periods, utilization)
+        task_dict[node] = gen_task_set_for_each_node(network, node, periods, utilization)
     # plt.show()
     # 3. 建立通信链路
-    #gen_virtual_links()
+    gen_virtual_links(task_dict)
 
 
 # 生成文本格式的图存储到文件中
