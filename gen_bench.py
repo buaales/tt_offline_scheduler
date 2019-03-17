@@ -6,7 +6,6 @@ import random
 import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
-
 from msg_scheduler import model as mmodel
 from scheduler import model as tmodel
 
@@ -243,6 +242,8 @@ def gen_model(periods: int, utilization: float, granuolarity: int, net_type: int
         gen_shaper_delta_for_each_node(task_dict[node])
     # 6. 计算phi_0参数和D_0参数
     gen_phi0_and_d0(task_dict,)
+
+    return network, task_dict
 
 # 生成文本格式的图存储到文件中
 if __name__ == '__main__':
