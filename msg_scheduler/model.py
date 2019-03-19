@@ -323,7 +323,7 @@ class Application(NamedObj):
 
     def depend_on(self, app: 'Application') -> 'Application':
         if app.peroid != self.peroid:
-            raise Exception("app I depend on has an unequal period to me")
+            raise Exception("app I depend on has an unequal peroid to me")
         self._depend_on_list.add(app)
         return self
 
@@ -338,6 +338,9 @@ class Application(NamedObj):
     @property
     def peroid(self) -> int:
         return self._peroid
+    @peroid.setter
+    def peroid(self, peroid: int):
+        self._peroid = peroid
 
     @property
     def node(self) -> Node:
