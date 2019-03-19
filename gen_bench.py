@@ -127,13 +127,13 @@ def gen_virtual_links(task_dict, network: mmodel.Network, peroids):
         _task_list_1[11].set_virtual_link([_task_list_2[9]]).set_frame(_peroid)
         # 2.3
         _peroid = random.choice(peroids)
-        print("1: {}".format(_peroid))
+        #print("1: {}".format(_peroid))
         _task_list_1[8].peroid = _peroid
         _task_list_2[10].peroid = _peroid
         _task_list_1[8].set_virtual_link([_task_list_2[10]]).set_frame(_peroid)
         # 2.4
         _peroid = random.choice(peroids)
-        print("2: {}".format(_peroid))
+        #print("2: {}".format(_peroid))
         _task_list_2[8].peroid = _peroid
         _task_list_1[10].peroid = _peroid
         _task_list_2[8].set_virtual_link([_task_list_1[10]]).set_frame(_peroid)
