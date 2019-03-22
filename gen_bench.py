@@ -185,7 +185,7 @@ def gen_phi0_and_d0(task_dict, network, delay_max, delay_min):
         _producer.deadline0 = _producer.peroid # 无用，乘0
         _consumer.offset0 = 0 # 无用，乘0
         _consumer.deadline0 = _consumer.peroid
-        _shaper.offset0 = _producer.peroid + delay_avg - _shaper.delta * _s
+        _shaper.offset0 = _producer.wcet + delay_avg - _shaper.delta * _s
         _shaper.deadline0 = _consumer.peroid - delay_avg - _consumer.wcet + (1 - _shaper.delta) * _s
         # 2. 处理 node 2 上的 shaper task
         _producer = task_dict[node_1][7]
@@ -198,7 +198,7 @@ def gen_phi0_and_d0(task_dict, network, delay_max, delay_min):
         _producer.deadline0 = _producer.peroid # 无用，乘0
         _consumer.offset0 = 0 # 无用，乘0
         _consumer.deadline0 = _consumer.peroid
-        _shaper.offset0 = _producer.peroid + delay_avg - _shaper.delta * _s
+        _shaper.offset0 = _producer.wcet + delay_avg - _shaper.delta * _s
         _shaper.deadline0 = _consumer.peroid - delay_avg - _consumer.wcet + (1 - _shaper.delta) * _s
         # 处理余下的两对p-c
         _producer = task_dict[node_1][8]
