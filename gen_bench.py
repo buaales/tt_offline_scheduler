@@ -237,7 +237,7 @@ def gen_model(peroids, utilization: float, granuolarity: int, net_type: int, tim
         path = './output/graph_small_gen/graph_{}.graphml'.format(times)
     elif net_type == 1:
         path = './output/graph_medium_gen/graph_{}.graphml'.format(times)
-    elif net_type == 3:
+    elif net_type == 2:
         path = './output/graph_large_gen/graph_{}.graphml'.format(times)
     else:
         print("[Benchmark Gen][ERR]: Unkown network type")

@@ -2,6 +2,7 @@ import sys
 import gen_bench as gb
 
 from msg_scheduler import model as mmodel
+from msg_scheduler import constrains, analyzer
 from scheduler import model as tmodel
 
 if __name__ == '__main__':
@@ -9,7 +10,7 @@ if __name__ == '__main__':
     peroids = [50, 75]
     util = 0.75
     gran = 1
-    net_type = 0
+    net_type = 2
     times = 8
     # call gen_model
     network, task_dict = gb.gen_model(peroids, util, gran, net_type, times)
@@ -35,3 +36,15 @@ if __name__ == '__main__':
         f.writelines('check util: %f\n' % real_util)
 
     f.writelines("######## END ########\n")
+
+    f.close()
+
+    sc = mmodel.Scheduler(network)
+    for node in task_dict:
+        sc.add_apps(task_dict[node])
+
+    hook = constrains.Z3Hook()
+    sc.add_constrains(hook)
+    df = hook.to_dataframe()
+    an = analyzer.Analyzer(df, network, sc.app_lcm)
+    #an.print_by_time()
