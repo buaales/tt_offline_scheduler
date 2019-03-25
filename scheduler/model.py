@@ -30,7 +30,7 @@ class Task(model.Application):
     @deadline0.setter
     def deadline0(self, deadline0: int):
         self._deadline0 = deadline0
-    
+
 
 class FreeTask(Task):
     """通信无关的实时任务"""
