@@ -4,7 +4,7 @@ import gen_bench as gb
 from msg_scheduler import model as mmodel
 from msg_scheduler import constrains, analyzer
 from scheduler import model as tmodel
-from scheduler import solver as tsolver
+from scheduler import solver_gurobi as tsolver
 from gurobipy import *
 
 if __name__ == '__main__':
@@ -12,8 +12,8 @@ if __name__ == '__main__':
     peroids = [50, 75]
     util = 0.75
     gran = 1
-    net_type = 0
-    times = 1
+    net_type = 2
+    times = 3
     # call gen_model
     network, task_dict = gb.gen_model(peroids, util, gran, net_type, times)
     # draw the network

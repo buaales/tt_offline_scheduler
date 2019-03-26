@@ -1,57 +1,561 @@
-######## Node node_5 ########
-task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6901, deadline0: 50000, peroid: 50000
-task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8306, deadline0: 75000, peroid: 75000
-task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2228, deadline0: 50000, peroid: 50000
-task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2955, deadline0: 50000, peroid: 50000
-task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7035, deadline0: 50000, peroid: 50000
-task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3466, deadline0: 50000, peroid: 50000
-task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2653, deadline0: 75000, peroid: 75000
-task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1742, deadline0: 50000, peroid: 50000, delta: 0
-task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3385, deadline0: 50000, peroid: 50000, delta: 0
-task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1086, deadline0: 50000, peroid: 50000, delta: 1
-task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 793, deadline0: 50000, peroid: 50000, delta: 1
-task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9469, wcet: 597, deadline0: 41365, peroid: 50000, delta: 0.46107309785303197
+######## Node node_39 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2530, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8723, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5582, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3640, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6527, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4195, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1268, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1173, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2509, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2513, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1428, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10582, wcet: 2567, deadline0: 66058, peroid: 75000, delta: 0.47177466997246337
 check util: 0.750000
-######## Node node_4 ########
-task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5413, deadline0: 50000, peroid: 50000
-task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1577, deadline0: 50000, peroid: 50000
-task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4914, deadline0: 50000, peroid: 50000
-task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3188, deadline0: 50000, peroid: 50000
-task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6996, deadline0: 50000, peroid: 50000
-task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 9051, deadline0: 75000, peroid: 75000
-task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 826, deadline0: 75000, peroid: 75000
-task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1325, deadline0: 50000, peroid: 50000, delta: 0
-task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1755, deadline0: 50000, peroid: 50000, delta: 0
-task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 634, deadline0: 50000, peroid: 50000, delta: 1
-task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3603, deadline0: 50000, peroid: 50000, delta: 1
-task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10031, wcet: 1505, deadline0: 40913, peroid: 50000, delta: 0.4157923917376277
+######## Node node_17 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7859, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3996, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7849, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6008, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4328, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3473, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3965, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2475, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2294, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 941, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1055, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9441, wcet: 1654, deadline0: 64486, peroid: 75000, delta: 0.42253784061474187
 check util: 0.750000
-######## Node node_0 ########
-task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4638, deadline0: 50000, peroid: 50000
-task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2287, deadline0: 50000, peroid: 50000
-task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2419, deadline0: 50000, peroid: 50000
-task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7601, deadline0: 50000, peroid: 50000
-task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 11562, deadline0: 75000, peroid: 75000
-task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5205, deadline0: 75000, peroid: 75000
-task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5235, deadline0: 75000, peroid: 75000
-task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1553, deadline0: 50000, peroid: 50000, delta: 0
-task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1412, deadline0: 50000, peroid: 50000, delta: 0
-task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1040, deadline0: 50000, peroid: 50000, delta: 1
-task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 723, deadline0: 75000, peroid: 75000, delta: 1
-task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9720, wcet: 2093, deadline0: 63591, peroid: 75000, delta: 0.5991331790615784
+######## Node node_20 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6826, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7141, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3481, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8336, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1364, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 974, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2166, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2592, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1417, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 872, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2745, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 11214, wcet: 1828, deadline0: 65309, peroid: 75000, delta: 0.5533281031809669
+check util: 0.750000
+######## Node node_28 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5656, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6313, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3007, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8626, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2780, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8606, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2182, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3214, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2282, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1497, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1563, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10592, wcet: 965, deadline0: 40838, peroid: 50000, delta: 0.5844271944086828
+check util: 0.750000
+######## Node node_61 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2493, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6221, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5113, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6714, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6154, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4309, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2135, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 741, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3344, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2227, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2505, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10636, wcet: 555, deadline0: 63243, peroid: 75000, delta: 0.45854673242717536
+check util: 0.750000
+######## Node node_62 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2671, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 11255, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3128, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7871, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3768, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4224, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 557, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2483, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3720, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3756, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2583, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9011, wcet: 454, deadline0: 39772, peroid: 50000, delta: 0.4221636073556144
+check util: 0.750000
+######## Node node_66 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7668, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1879, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5161, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4328, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5222, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3865, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1605, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 981, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2546, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1526, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2314, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9450, wcet: 2020, deadline0: 41332, peroid: 50000, delta: 0.46241462084304774
+check util: 0.750000
+######## Node node_26 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5027, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7027, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6859, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1512, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8949, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8540, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3046, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1310, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3333, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 667, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2906, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9085, wcet: 1206, deadline0: 40473, peroid: 50000, delta: 0.47281414106154607
+check util: 0.750000
+######## Node node_43 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2215, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3196, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5161, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8595, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6064, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8966, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 788, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1349, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1611, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2260, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3267, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9387, wcet: 2390, deadline0: 39832, peroid: 50000, delta: 0.4503383329527366
+check util: 0.750000
+######## Node node_68 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7302, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4778, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4694, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3111, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6319, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5618, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1878, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1207, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1325, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2167, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1848, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9479, wcet: 3022, deadline0: 64739, peroid: 75000, delta: 0.46517804570897175
+check util: 0.750000
+######## Node node_12 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7711, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5006, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 9726, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5337, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3220, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6383, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3116, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1877, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3056, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 509, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1851, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9204, wcet: 2725, deadline0: 65935, peroid: 75000, delta: 0.44074146356727534
+check util: 0.750000
+######## Node node_34 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8649, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6821, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7995, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8428, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4721, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2140, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1343, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 992, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2311, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1064, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3881, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10011, wcet: 2641, deadline0: 66490, peroid: 75000, delta: 0.4640774986415217
+check util: 0.750000
+######## Node node_67 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6422, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3045, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5182, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4358, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8272, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 9515, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1787, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1191, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2270, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1366, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1321, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 8832, wcet: 2194, deadline0: 40368, peroid: 50000, delta: 0.43237264262130937
+check util: 0.750000
+######## Node node_16 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6270, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5575, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2534, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5598, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8920, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6768, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1086, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 594, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2506, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1631, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2698, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9191, wcet: 2119, deadline0: 40346, peroid: 50000, delta: 0.5835557527783117
+check util: 0.750000
+######## Node node_59 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6379, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1099, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6181, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8593, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 9766, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4351, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4052, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2578, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1685, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3273, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 828, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9736, wcet: 533, deadline0: 41268, peroid: 50000, delta: 0.5512199082536533
+check util: 0.750000
+######## Node node_50 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5502, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 10359, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1078, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3841, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3168, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8684, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2489, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1736, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2623, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 545, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2207, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10729, wcet: 2215, deadline0: 63726, peroid: 75000, delta: 0.4589786177749706
+check util: 0.750000
+######## Node node_36 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7650, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 9467, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3220, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3670, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4818, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7504, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2202, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1719, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3791, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2409, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1560, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 11186, wcet: 2378, deadline0: 63100, peroid: 75000, delta: 0.5359615830720865
+check util: 0.750000
+######## Node node_55 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6279, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5209, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 11733, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7624, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6341, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1238, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1742, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3186, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 967, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3764, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1561, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10019, wcet: 2838, deadline0: 64590, peroid: 75000, delta: 0.41167544735947337
+check util: 0.750000
+######## Node node_19 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1514, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2969, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3407, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8025, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 10167, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6564, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1843, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 5069, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 466, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3374, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 569, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10079, wcet: 1056, deadline0: 40234, peroid: 50000, delta: 0.5991216111777631
+check util: 0.750000
+######## Node node_52 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2966, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8086, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3526, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5277, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6976, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7743, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1936, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2079, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1832, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1434, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2038, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 13069, wcet: 995, deadline0: 63574, peroid: 75000, delta: 0.513135346862882
+check util: 0.750000
+######## Node node_27 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6258, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5764, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8715, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2163, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8173, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4765, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2225, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3468, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3165, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2118, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1120, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 8650, wcet: 566, deadline0: 41087, peroid: 50000, delta: 0.5660686240975761
+check util: 0.750000
+######## Node node_1 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 9275, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2511, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8001, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3155, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4987, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4947, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2787, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 650, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3642, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 679, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2275, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 11468, wcet: 3362, deadline0: 64595, peroid: 75000, delta: 0.5833001816797481
+check util: 0.750000
+######## Node node_22 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 9281, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7672, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4709, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5365, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 13355, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1202, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1709, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1120, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2832, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1381, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2244, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10242, wcet: 2668, deadline0: 63939, peroid: 75000, delta: 0.48882326538846355
+check util: 0.750000
+######## Node node_41 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2879, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5957, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 12785, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3313, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5323, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4632, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 961, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2198, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3988, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3060, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3247, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9120, wcet: 404, deadline0: 40463, peroid: 50000, delta: 0.5419254909481939
+check util: 0.750000
+######## Node node_60 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6139, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3960, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3731, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6509, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4322, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 10428, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2030, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2161, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2258, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 614, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1310, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10149, wcet: 2677, deadline0: 40777, peroid: 50000, delta: 0.46434703393455606
+check util: 0.750000
+######## Node node_29 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4230, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8208, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7568, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 9388, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6128, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 988, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 920, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2016, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2045, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1222, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1351, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10224, wcet: 3862, deadline0: 66385, peroid: 75000, delta: 0.4836966170001217
+check util: 0.750000
+######## Node node_58 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3063, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 13812, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6973, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3787, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1868, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6569, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 517, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 4588, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 985, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2555, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3321, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10821, wcet: 1601, deadline0: 63924, peroid: 75000, delta: 0.5406459704426714
+check util: 0.750000
+######## Node node_46 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6215, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 9424, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1760, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1768, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 12866, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6161, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2423, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2821, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 4241, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2925, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 662, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 12588, wcet: 657, deadline0: 64242, peroid: 75000, delta: 0.5561726164912342
+check util: 0.750000
+######## Node node_57 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3458, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5645, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 10657, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7163, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7634, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7628, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1372, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 953, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2753, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1970, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1525, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9726, wcet: 1718, deadline0: 40233, peroid: 50000, delta: 0.5402525176072207
+check util: 0.750000
+######## Node node_11 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5383, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 14970, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3343, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4231, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2648, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8169, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2361, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1726, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 764, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1617, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2635, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 8953, wcet: 1147, deadline0: 39868, peroid: 50000, delta: 0.5437955854700305
+check util: 0.750000
+######## Node node_24 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8509, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7051, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7130, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2549, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4355, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7751, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2336, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1203, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1531, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 4369, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1781, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9639, wcet: 2840, deadline0: 65862, peroid: 75000, delta: 0.5253673799087262
 check util: 0.750000
 ######## Node node_2 ########
-task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7856, deadline0: 75000, peroid: 75000
-task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5941, deadline0: 75000, peroid: 75000
-task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 10990, deadline0: 75000, peroid: 75000
-task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5725, deadline0: 50000, peroid: 50000
-task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7215, deadline0: 75000, peroid: 75000
-task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1594, deadline0: 75000, peroid: 75000
-task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1810, deadline0: 50000, peroid: 50000
-task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1720, deadline0: 75000, peroid: 75000, delta: 0
-task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2472, deadline0: 75000, peroid: 75000, delta: 0
-task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3077, deadline0: 75000, peroid: 75000, delta: 1
-task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 722, deadline0: 50000, peroid: 50000, delta: 1
-task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9553, wcet: 1994, deadline0: 40663, peroid: 50000, delta: 0.5868912704801241
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8253, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6217, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3495, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 11691, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3054, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6200, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2209, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1639, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3256, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1040, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2549, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9203, wcet: 3366, deadline0: 62433, peroid: 75000, delta: 0.5547513334529302
+check util: 0.750000
+######## Node node_42 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3398, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4736, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8396, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6287, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6003, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2100, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 625, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 787, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3379, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2674, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 634, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10368, wcet: 3916, deadline0: 66229, peroid: 75000, delta: 0.5701502475949539
+check util: 0.750000
+######## Node node_56 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5366, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6508, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 10888, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 9890, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1008, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2082, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3440, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2368, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 723, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 524, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3629, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 8875, wcet: 2250, deadline0: 39325, peroid: 50000, delta: 0.4770871144154993
+check util: 0.750000
+######## Node node_44 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 10205, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3557, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7344, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6254, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6639, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1823, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 442, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1834, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2455, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1535, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 556, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 11231, wcet: 3825, deadline0: 63330, peroid: 75000, delta: 0.5496237235408616
+check util: 0.750000
+######## Node node_30 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4025, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 9057, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5509, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6315, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6257, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3901, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1646, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3231, deadline0: 75000, peroid: 75000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1131, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3489, deadline0: 75000, peroid: 75000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1468, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9834, wcet: 648, deadline0: 40323, peroid: 50000, delta: 0.5378713406531521
+check util: 0.750000
+######## Node node_31 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7089, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4339, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 16029, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4326, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4576, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1520, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1401, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1788, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 3080, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 886, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 3449, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9242, wcet: 1412, deadline0: 39379, peroid: 50000, delta: 0.48115129197277307
+check util: 0.750000
+######## Node node_7 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5198, deadline0: 75000, peroid: 75000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6139, deadline0: 50000, peroid: 50000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 10744, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4138, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 4197, deadline0: 75000, peroid: 75000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8699, deadline0: 75000, peroid: 75000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1691, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1170, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1197, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2620, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1243, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 9788, wcet: 2266, deadline0: 40791, peroid: 50000, delta: 0.5956994727468592
+check util: 0.750000
+######## Node node_51 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7282, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3053, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 8294, deadline0: 75000, peroid: 75000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6115, deadline0: 75000, peroid: 75000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3460, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 5739, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3763, deadline0: 75000, peroid: 75000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2368, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 1673, deadline0: 50000, peroid: 50000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 707, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 2228, deadline0: 75000, peroid: 75000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 8714, wcet: 631, deadline0: 40449, peroid: 50000, delta: 0.48240191437102475
+check util: 0.750000
+######## Node node_65 ########
+task id: 0, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 2782, deadline0: 50000, peroid: 50000
+task id: 1, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1591, deadline0: 75000, peroid: 75000
+task id: 2, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 7648, deadline0: 50000, peroid: 50000
+task id: 3, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6070, deadline0: 50000, peroid: 50000
+task id: 4, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 6958, deadline0: 50000, peroid: 50000
+task id: 5, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 3604, deadline0: 50000, peroid: 50000
+task id: 6, task type: <class 'scheduler.model.FreeTask'>	offset0: 0, wcet: 1250, deadline0: 50000, peroid: 50000
+task id: 7, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 646, deadline0: 50000, peroid: 50000, delta: 1
+task id: 8, task type: <class 'scheduler.model.ProducerTask'>	offset0: 0, wcet: 2725, deadline0: 75000, peroid: 75000, delta: 1
+task id: 9, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1550, deadline0: 50000, peroid: 50000, delta: 0
+task id: 10, task type: <class 'scheduler.model.ConsumerTask'>	offset0: 0, wcet: 1394, deadline0: 50000, peroid: 50000, delta: 0
+task id: 11, task type: <class 'scheduler.model.ShaperTask'>	offset0: 10512, wcet: 2715, deadline0: 41292, peroid: 50000, delta: 0.46102803205683307
 check util: 0.750000
 ######## END ########

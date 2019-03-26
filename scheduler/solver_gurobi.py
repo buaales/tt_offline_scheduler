@@ -71,6 +71,9 @@ class Solver:
                 s.addConstr(_max >= _expr_temp, 'max_{}'.format(task.name))
                 _expr_temp = (_d0 - _d) * (1 - _delta) - (_phi - _phi0) * _delta + _d - _phi
                 s.addConstr(_max >= _expr_temp, 'max_{}'.format(task.name))
+                # Not right
+                _expr_temp = 5 * _wcet0 / ( 0.95 - self._free_util)
+                s.addConstr(_d >= _expr_temp, 'd_{}'.format(task.name))
             # Add util constrains
             # s.addConstr(expr <= 0, 'u_{}'.format(node.name))
 
@@ -97,6 +100,19 @@ class Solver:
             _t1 = time.clock()
             print("Slover finished in %f s!" % (_t1 - _t0))
 
+            # check util
+            for node in self._task_dict:
+                _util = 0
+                tasks = self._task_dict[node]
+                for task in tasks:
+                    _wcet0 = int(task.wcet * 1000)
+                    if isinstance(task, TModel.FreeTask):
+                        _dd = task.deadline0 * 1000
+                        _util += _wcet0 / _dd
+                    else:
+                        _dd = self._solver.getVarByName('{}_deadline'.format(task.name))
+                        _util += _wcet0 / _dd.x
+                print("{} util is {}".format(node.name, _util))
             # output
             with open(file_path, 'w') as f:
                 for var in self._solver.getVars():

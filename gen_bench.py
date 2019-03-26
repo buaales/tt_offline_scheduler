@@ -148,10 +148,10 @@ def gen_comm_delta_for_each_node(tasks):
         assert isinstance(_task, tmodel.CommTask), 'Gen_shaper_delta: 实例类型不为CommTask'
         # producer
         if isinstance(_task, tmodel.ProducerTask):
-            _task.delta = 0
+            _task.delta = 1
         # consumer
         elif isinstance(_task, tmodel.ConsumerTask):
-            _task.delta = 1
+            _task.delta = 0
         # shaper task
         else:
             _task.delta = random.uniform(0.4, 0.6)
