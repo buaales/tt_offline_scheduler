@@ -12,8 +12,8 @@ if __name__ == '__main__':
     peroids = [50, 75]
     util = 0.75
     gran = 1
-    net_type = 2
-    times = 3
+    net_type = 1
+    times = 10
     # call gen_model
     network, task_dict = gb.gen_model(peroids, util, gran, net_type, times)
     # draw the network

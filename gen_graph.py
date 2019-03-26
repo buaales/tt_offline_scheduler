@@ -10,20 +10,37 @@ from multiprocessing import Pool
 from msg_scheduler import model as mmodel
 from scheduler import model as tmodel
 
-def gen_network_large(network: mmodel.Network, idx: int):
+def gen_network_large(network: mmodel.Network, file_idx: int):
     # 1. generate a random tree and select one with 8 end-node
     enode_num = 0
-    while enode_num < 42:
+    while enode_num != 12:
         enode_num = 0
-        g = networkx.generators.random_tree(36)
+        g = networkx.generators.random_tree(20)
         # check the number of end-node
         for n in g.nodes():
             if networkx.degree(g, n) == 1:
                 enode_num += 1
-    print("Get one with endnode_num %d, index %d" % (enode_num, idx))
+    print("Get one with endnode_num %d, index %d" % (enode_num, file_idx))
+    # add endnode to 48 endnodes
+    num_list = [5, 4, 5, 4, 5, 4, 5, 4]
+    times, idx = 0, 20
+    print(len(g.nodes()))
+    for node in list(g.nodes()):
+        if networkx.degree(g, node) == 1:
+            continue
+        # it is switchNode, add endnode
+        _num = num_list[times]
+        for i in range(_num):
+            g.add_node(idx)
+            g.add_edge(idx, node)
+            idx += 1
+        times += 1
+    print(idx)
+    assert idx == 56, "idx is not equal 56"
+    assert times == 8, "Times is not equal 4"
     # 1.1 write into file
     networkx.readwrite.graphml.write_graphml(g,
-        "./output/graph_large_gen/graph_{}.graphml".format(idx))
+        "./output/graph_large_gen/graph_{}.graphml".format(file_idx))
 
     return
 
@@ -52,7 +69,7 @@ def gen_network_medium(network: mmodel.Network, file_idx: int):
             idx += 1
         times += 1
     assert times == 4, "Times is not equal 4"
-    assert idx == 20, "Times is not equal 20"
+    assert idx == 20, "idx is not equal 20"
     # 1.1 write into file
     networkx.readwrite.graphml.write_graphml(g,
         "./output/graph_medium_gen/graph_{}.graphml".format(file_idx))
@@ -116,4 +133,4 @@ if __name__ == "__main__":
     p.join()
     print('All subprocesses done.')
     '''
-    gen_network_into_file(1, 0, 100)
+    gen_network_into_file(2, 0, 100)

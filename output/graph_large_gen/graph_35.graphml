@@ -57,92 +57,60 @@
     <node id="53" />
     <node id="54" />
     <node id="55" />
-    <node id="56" />
-    <node id="57" />
-    <node id="58" />
-    <node id="59" />
-    <node id="60" />
-    <node id="61" />
-    <node id="62" />
-    <node id="63" />
-    <node id="64" />
-    <node id="65" />
-    <node id="66" />
-    <node id="67" />
-    <node id="68" />
-    <node id="69" />
-    <node id="70" />
-    <node id="71" />
-    <edge source="0" target="9" />
-    <edge source="0" target="33" />
-    <edge source="0" target="46" />
-    <edge source="0" target="62" />
-    <edge source="0" target="37" />
-    <edge source="0" target="38" />
+    <edge source="0" target="16" />
+    <edge source="0" target="17" />
+    <edge source="0" target="8" />
+    <edge source="0" target="20" />
+    <edge source="0" target="21" />
+    <edge source="0" target="22" />
+    <edge source="0" target="23" />
+    <edge source="0" target="24" />
+    <edge source="1" target="4" />
+    <edge source="1" target="10" />
+    <edge source="1" target="19" />
+    <edge source="1" target="25" />
+    <edge source="1" target="26" />
+    <edge source="1" target="27" />
     <edge source="1" target="28" />
-    <edge source="2" target="34" />
-    <edge source="2" target="49" />
-    <edge source="2" target="70" />
-    <edge source="2" target="39" />
-    <edge source="3" target="21" />
-    <edge source="3" target="58" />
-    <edge source="3" target="44" />
-    <edge source="3" target="8" />
-    <edge source="4" target="22" />
-    <edge source="4" target="54" />
-    <edge source="4" target="57" />
-    <edge source="5" target="28" />
-    <edge source="6" target="42" />
-    <edge source="6" target="65" />
-    <edge source="6" target="66" />
-    <edge source="6" target="29" />
-    <edge source="7" target="42" />
-    <edge source="8" target="15" />
+    <edge source="2" target="5" />
+    <edge source="2" target="15" />
+    <edge source="2" target="10" />
+    <edge source="2" target="29" />
+    <edge source="2" target="30" />
+    <edge source="2" target="31" />
+    <edge source="2" target="32" />
+    <edge source="2" target="33" />
+    <edge source="3" target="5" />
+    <edge source="5" target="6" />
+    <edge source="5" target="13" />
+    <edge source="5" target="34" />
+    <edge source="5" target="35" />
+    <edge source="5" target="36" />
+    <edge source="5" target="37" />
+    <edge source="7" target="10" />
+    <edge source="8" target="11" />
+    <edge source="8" target="10" />
+    <edge source="8" target="38" />
     <edge source="8" target="39" />
     <edge source="8" target="40" />
-    <edge source="10" target="47" />
-    <edge source="10" target="30" />
-    <edge source="11" target="37" />
-    <edge source="12" target="57" />
+    <edge source="8" target="41" />
+    <edge source="8" target="42" />
+    <edge source="9" target="10" />
+    <edge source="10" target="18" />
+    <edge source="10" target="43" />
+    <edge source="10" target="44" />
+    <edge source="10" target="45" />
+    <edge source="10" target="46" />
+    <edge source="12" target="13" />
+    <edge source="13" target="47" />
+    <edge source="13" target="48" />
     <edge source="13" target="49" />
-    <edge source="14" target="63" />
-    <edge source="16" target="40" />
-    <edge source="17" target="40" />
-    <edge source="18" target="32" />
-    <edge source="18" target="58" />
-    <edge source="19" target="40" />
-    <edge source="19" target="71" />
-    <edge source="20" target="58" />
-    <edge source="21" target="48" />
-    <edge source="23" target="45" />
-    <edge source="23" target="31" />
-    <edge source="24" target="53" />
-    <edge source="25" target="61" />
-    <edge source="26" target="35" />
-    <edge source="26" target="29" />
-    <edge source="26" target="63" />
-    <edge source="27" target="57" />
-    <edge source="28" target="55" />
-    <edge source="28" target="42" />
-    <edge source="29" target="51" />
-    <edge source="29" target="38" />
-    <edge source="30" target="50" />
-    <edge source="30" target="64" />
-    <edge source="30" target="37" />
-    <edge source="31" target="39" />
-    <edge source="36" target="63" />
-    <edge source="37" target="43" />
-    <edge source="40" target="52" />
-    <edge source="40" target="63" />
-    <edge source="40" target="69" />
-    <edge source="41" target="60" />
-    <edge source="41" target="42" />
-    <edge source="42" target="53" />
-    <edge source="44" target="67" />
-    <edge source="56" target="69" />
-    <edge source="57" target="65" />
-    <edge source="58" target="59" />
-    <edge source="61" target="64" />
-    <edge source="64" target="68" />
+    <edge source="13" target="50" />
+    <edge source="13" target="51" />
+    <edge source="14" target="18" />
+    <edge source="18" target="52" />
+    <edge source="18" target="53" />
+    <edge source="18" target="54" />
+    <edge source="18" target="55" />
   </graph>
 </graphml>

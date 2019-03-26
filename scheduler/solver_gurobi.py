@@ -52,15 +52,16 @@ class Solver:
                 _phi0 = int(task.offset0 * 1000)
                 _d0 = int(task.deadline0 * 1000)
                 _wcet0 = int(task.wcet * 1000)
+                _period0 = int(task.peroid * 1000)
                 _delta = task.delta
                 # constrains for d
                 _d = self._vars['{}_deadline'.format(task.name)]
-                s.addConstr(_d >= 0, 'c_{}_d_0'.format(task.name))
+                s.addConstr(_d >= _wcet0, 'c_{}_d_0'.format(task.name))
                 s.addConstr(_d <= _d0, 'c_{}_d_1'.format(task.name))
                 # constrains for phi
                 _phi = self._vars['{}_phi'.format(task.name)]
                 s.addConstr(_phi >= _phi0, 'c_{}_phi_0'.format(task.name))
-                s.addConstr(_phi <= _d - _wcet0, 'c_{}_phi_1'.format(task.name))
+                s.addConstr(_phi <= _period0 - _d , 'c_{}_phi_1'.format(task.name))
                 # part of util constrains
                 #_wcet = self._vars['{}_wcet'.format(task.name)]
                 #s.addConstr(_wcet == _wcet0, 'c_{}_wcet'.format(task.name))
