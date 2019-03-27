@@ -1,6 +1,9 @@
 "测试集生成模块"
-
 import sys
+if sys.platform == 'darwin':
+    import matplotlib
+    matplotlib.use("TkAgg")
+
 import time
 import random
 import networkx as nx
