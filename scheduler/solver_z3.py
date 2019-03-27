@@ -41,7 +41,7 @@ class Solver:
 
         for node in self._task_dict:
             tasks = self._task_dict[node]
-            expr = -(1 - self._free_util)
+            expr = 0
             for task in tasks:
                 # skip free-task
                 if isinstance(task, TModel.FreeTask):
@@ -56,8 +56,8 @@ class Solver:
                 s.add(_d <= _d0)
                 # constrains for phi
                 _phi = self._var_name_map['{}_phi'.format(task.name)]
-                s.addConstr(_phi >= _phi0)
-                s.addConstr(_phi <= _d - _wcet0)
+                s.add(_phi >= _phi0)
+                s.add(_phi <= _d - _wcet0)
                 # part of util constrains
                 expr += _wcet0 / _d
                 # max
@@ -67,7 +67,7 @@ class Solver:
                 _expr_temp = (_d0 - _d) * (1 - _delta) - (_phi - _phi0) * _delta + _d - _phi
                 s.add(_max >= _expr_temp)
             # Add util constrains
-            s.add(expr <= 0)
+            s.add(expr <= (1-self._free_util))
 
         # set objective: min_max
         _max = self._var_name_map['max']
@@ -82,13 +82,13 @@ class Solver:
         # solver
         print("Slover started!")
         _t0 = time.clock()
-        self._solver.check()
-        self._solver.lower(h)
-        self._solver.model()
+        print(self._solver.check())
+        print(self._solver.lower(h))
+        print(self._solver.model())
         _t1 = time.clock()
         print("Slover finished in %f s!" % (_t1 - _t0))
 
         # output
-        with open(file_path, 'w') as f:
-            for var in self._solver.getVars():
-                f.writelines('{}, {}\n'.format(var.varName, var.x))
+        #with open(file_path, 'w') as f:
+        #    for var in self._solver.getVars():
+        #        f.writelines('{}, {}\n'.format(var.varName, var.x))
