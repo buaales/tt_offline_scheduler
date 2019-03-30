@@ -13,6 +13,7 @@ class Solver:
         self._free_util = free_util
         self._solver = Model("tt_schduler")
         self._vars = {}
+        self.f = open("../output/contrain_sample.txt", 'w')
 
     def __build_var(self):
         '''
@@ -20,7 +21,7 @@ class Solver:
         '''
         # build for min_max Intermediate variables
         self._vars["max"] = self._solver.addVar(vtype=GRB.INTEGER, name="max")
-
+        self.f.writelines("max\n")
         for node in self._task_dict:
             tasks = self._task_dict[node]
             for task in tasks:
@@ -35,16 +36,18 @@ class Solver:
                                                         name="{}_deadline".format(task.name))
                 #self._vars["{}_wcet".format(task.name)] = self._solver.addVar(vtype=GRB.INTEGER,
                 #                                        name="{}_wcet".format(task.name))
+                self.f.writelines("{}_phi\n".format(task.name))
+                self.f.writelines("{}_deadline\n".format(task.name))
 
     def __build_constrains(self):
         '''
         Build constrains
         '''
         s = self._solver
-
         for node in self._task_dict:
             tasks = self._task_dict[node]
             expr = -(1 - self._free_util)
+            expr_str = " -(1 - 0.75 * 0.75) "
             for task in tasks:
                 # skip free-task
                 if isinstance(task, TModel.FreeTask):
@@ -58,25 +61,35 @@ class Solver:
                 _d = self._vars['{}_deadline'.format(task.name)]
                 s.addConstr(_d >= _wcet0, 'c_{}_d_0'.format(task.name))
                 s.addConstr(_d <= _d0, 'c_{}_d_1'.format(task.name))
+                self.f.writelines("{} >= {}\n".format('{}_deadline'.format(task.name), _wcet0))
+                self.f.writelines("{} <= {}\n".format('{}_deadline'.format(task.name), _d0))
                 # constrains for phi
                 _phi = self._vars['{}_phi'.format(task.name)]
                 s.addConstr(_phi >= _phi0, 'c_{}_phi_0'.format(task.name))
                 s.addConstr(_phi <= _period0 - _d , 'c_{}_phi_1'.format(task.name))
+                self.f.writelines("{} >= {}\n".format('{}_phi'.format(task.name), _phi0))
+                self.f.writelines("{} <= {} - {}\n".format('{}_phi'.format(task.name), _period0, '{}_deadline'.format(task.name)))
                 # part of util constrains
-                #_wcet = self._vars['{}_wcet'.format(task.name)]
-                #s.addConstr(_wcet == _wcet0, 'c_{}_wcet'.format(task.name))
                 # expr += _wcet / _d
+                expr_str += "{} / {}".format(_wcet0, '{}_deadline'.format(task.name))
                 # max
                 _max = self._vars['max']
                 _expr_temp = (_phi - _phi0) * _delta - (_d0 - _d) * (1 - _delta) + _d - _phi
                 s.addConstr(_max >= _expr_temp, 'max_{}'.format(task.name))
+                _expr_temp_str = "({} - {}) * {} - ({} - {}) * (1 - {}) + {} - {}".format('{}_phi'.format(task.name),
+                                _phi0, _delta, _d0, '{}_deadline'.format(task.name), _delta, '{}_deadline'.format(task.name), '{}_phi'.format(task.name))
+                self.f.writelines("max >= {}\n".format(_expr_temp_str))
                 _expr_temp = (_d0 - _d) * (1 - _delta) - (_phi - _phi0) * _delta + _d - _phi
                 s.addConstr(_max >= _expr_temp, 'max_{}'.format(task.name))
+                _expr_temp_str = "({} - {}) * (1 - {}) - ({} - {}) * {} + {} - {}".format(_d0, '{}_deadline'.format(task.name),
+                                _delta, '{}_phi'.format(task.name), _phi0, _delta, '{}_deadline'.format(task.name), '{}_phi'.format(task.name))
+                self.f.writelines("max >= {}\n".format(_expr_temp_str))
                 # Not right
                 _expr_temp = 5 * _wcet0 / ( 0.95 - self._free_util)
                 s.addConstr(_d >= _expr_temp, 'd_{}'.format(task.name))
             # Add util constrains
             # s.addConstr(expr <= 0, 'u_{}'.format(node.name))
+            self.f.writelines("{} <= 0\n".format(expr_str))
 
         # set objective: min_max
         _max = self._vars['max']
@@ -86,14 +99,12 @@ class Solver:
     def solve(self, file_path: str):
         try:
             # build var
+            f.writelines("###### Vars ######\n")
             self.__build_var()
-            print(len(self._solver.getVars()))
-            for v in self._solver.getVars():
-                print(3)
-                print(v.varName)
-            print(2)
             # build constrains
+            f.writelines("###### Contrains ######\n")
             self.__build_constrains()
+            return
             # solver
             print("Slover started!")
             _t0 = time.clock()
