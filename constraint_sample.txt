@@ -1,0 +1,167 @@
+###### Vars ######
+max
+node_3_7_phi
+node_3_7_deadline
+node_3_8_phi
+node_3_8_deadline
+node_3_9_phi
+node_3_9_deadline
+node_3_10_phi
+node_3_10_deadline
+node_3_11_phi
+node_3_11_deadline
+node_4_7_phi
+node_4_7_deadline
+node_4_8_phi
+node_4_8_deadline
+node_4_9_phi
+node_4_9_deadline
+node_4_10_phi
+node_4_10_deadline
+node_4_11_phi
+node_4_11_deadline
+node_5_7_phi
+node_5_7_deadline
+node_5_8_phi
+node_5_8_deadline
+node_5_9_phi
+node_5_9_deadline
+node_5_10_phi
+node_5_10_deadline
+node_5_11_phi
+node_5_11_deadline
+node_0_7_phi
+node_0_7_deadline
+node_0_8_phi
+node_0_8_deadline
+node_0_9_phi
+node_0_9_deadline
+node_0_10_phi
+node_0_10_deadline
+node_0_11_phi
+node_0_11_deadline
+###### Contrains ######
+node_3_7_deadline >= 765
+node_3_7_deadline <= 75000
+node_3_7_phi >= 0
+node_3_7_phi <= 75000 - node_3_7_deadline
+max >= (node_3_7_phi - 0) * 1 - (75000 - node_3_7_deadline) * (1 - 1) + node_3_7_deadline - node_3_7_phi
+max >= (75000 - node_3_7_deadline) * (1 - 1) - (node_3_7_phi - 0) * 1 + node_3_7_deadline - node_3_7_phi
+node_3_8_deadline >= 2746
+node_3_8_deadline <= 50000
+node_3_8_phi >= 0
+node_3_8_phi <= 50000 - node_3_8_deadline
+max >= (node_3_8_phi - 0) * 1 - (50000 - node_3_8_deadline) * (1 - 1) + node_3_8_deadline - node_3_8_phi
+max >= (50000 - node_3_8_deadline) * (1 - 1) - (node_3_8_phi - 0) * 1 + node_3_8_deadline - node_3_8_phi
+node_3_9_deadline >= 1828
+node_3_9_deadline <= 75000
+node_3_9_phi >= 0
+node_3_9_phi <= 75000 - node_3_9_deadline
+max >= (node_3_9_phi - 0) * 0 - (75000 - node_3_9_deadline) * (1 - 0) + node_3_9_deadline - node_3_9_phi
+max >= (75000 - node_3_9_deadline) * (1 - 0) - (node_3_9_phi - 0) * 0 + node_3_9_deadline - node_3_9_phi
+node_3_10_deadline >= 4487
+node_3_10_deadline <= 75000
+node_3_10_phi >= 0
+node_3_10_phi <= 75000 - node_3_10_deadline
+max >= (node_3_10_phi - 0) * 0 - (75000 - node_3_10_deadline) * (1 - 0) + node_3_10_deadline - node_3_10_phi
+max >= (75000 - node_3_10_deadline) * (1 - 0) - (node_3_10_phi - 0) * 0 + node_3_10_deadline - node_3_10_phi
+node_3_11_deadline >= 1948
+node_3_11_deadline <= 66161
+node_3_11_phi >= 11720
+node_3_11_phi <= 75000 - node_3_11_deadline
+max >= (node_3_11_phi - 11720) * 0.5241986275419095 - (66161 - node_3_11_deadline) * (1 - 0.5241986275419095) + node_3_11_deadline - node_3_11_phi
+max >= (66161 - node_3_11_deadline) * (1 - 0.5241986275419095) - (node_3_11_phi - 11720) * 0.5241986275419095 + node_3_11_deadline - node_3_11_phi
+ -(1 - 0.75 * 0.75)  + 765 / node_3_7_deadline + 2746 / node_3_8_deadline + 1828 / node_3_9_deadline + 4487 / node_3_10_deadline + 1948 / node_3_11_deadline <= 0
+node_4_7_deadline >= 3720
+node_4_7_deadline <= 75000
+node_4_7_phi >= 0
+node_4_7_phi <= 75000 - node_4_7_deadline
+max >= (node_4_7_phi - 0) * 1 - (75000 - node_4_7_deadline) * (1 - 1) + node_4_7_deadline - node_4_7_phi
+max >= (75000 - node_4_7_deadline) * (1 - 1) - (node_4_7_phi - 0) * 1 + node_4_7_deadline - node_4_7_phi
+node_4_8_deadline >= 2901
+node_4_8_deadline <= 75000
+node_4_8_phi >= 0
+node_4_8_phi <= 75000 - node_4_8_deadline
+max >= (node_4_8_phi - 0) * 1 - (75000 - node_4_8_deadline) * (1 - 1) + node_4_8_deadline - node_4_8_phi
+max >= (75000 - node_4_8_deadline) * (1 - 1) - (node_4_8_phi - 0) * 1 + node_4_8_deadline - node_4_8_phi
+node_4_9_deadline >= 746
+node_4_9_deadline <= 75000
+node_4_9_phi >= 0
+node_4_9_phi <= 75000 - node_4_9_deadline
+max >= (node_4_9_phi - 0) * 0 - (75000 - node_4_9_deadline) * (1 - 0) + node_4_9_deadline - node_4_9_phi
+max >= (75000 - node_4_9_deadline) * (1 - 0) - (node_4_9_phi - 0) * 0 + node_4_9_deadline - node_4_9_phi
+node_4_10_deadline >= 1938
+node_4_10_deadline <= 50000
+node_4_10_phi >= 0
+node_4_10_phi <= 50000 - node_4_10_deadline
+max >= (node_4_10_phi - 0) * 0 - (50000 - node_4_10_deadline) * (1 - 0) + node_4_10_deadline - node_4_10_phi
+max >= (50000 - node_4_10_deadline) * (1 - 0) - (node_4_10_phi - 0) * 0 + node_4_10_deadline - node_4_10_phi
+node_4_11_deadline >= 1463
+node_4_11_deadline <= 64898
+node_4_11_phi >= 8765
+node_4_11_phi <= 75000 - node_4_11_deadline
+max >= (node_4_11_phi - 8765) * 0.579275253800864 - (64898 - node_4_11_deadline) * (1 - 0.579275253800864) + node_4_11_deadline - node_4_11_phi
+max >= (64898 - node_4_11_deadline) * (1 - 0.579275253800864) - (node_4_11_phi - 8765) * 0.579275253800864 + node_4_11_deadline - node_4_11_phi
+ -(1 - 0.75 * 0.75)  + 3720 / node_4_7_deadline + 2901 / node_4_8_deadline + 746 / node_4_9_deadline + 1938 / node_4_10_deadline + 1463 / node_4_11_deadline <= 0
+node_5_7_deadline >= 926
+node_5_7_deadline <= 50000
+node_5_7_phi >= 0
+node_5_7_phi <= 50000 - node_5_7_deadline
+max >= (node_5_7_phi - 0) * 1 - (50000 - node_5_7_deadline) * (1 - 1) + node_5_7_deadline - node_5_7_phi
+max >= (50000 - node_5_7_deadline) * (1 - 1) - (node_5_7_phi - 0) * 1 + node_5_7_deadline - node_5_7_phi
+node_5_8_deadline >= 5692
+node_5_8_deadline <= 75000
+node_5_8_phi >= 0
+node_5_8_phi <= 75000 - node_5_8_deadline
+max >= (node_5_8_phi - 0) * 1 - (75000 - node_5_8_deadline) * (1 - 1) + node_5_8_deadline - node_5_8_phi
+max >= (75000 - node_5_8_deadline) * (1 - 1) - (node_5_8_phi - 0) * 1 + node_5_8_deadline - node_5_8_phi
+node_5_9_deadline >= 1469
+node_5_9_deadline <= 50000
+node_5_9_phi >= 0
+node_5_9_phi <= 50000 - node_5_9_deadline
+max >= (node_5_9_phi - 0) * 0 - (50000 - node_5_9_deadline) * (1 - 0) + node_5_9_deadline - node_5_9_phi
+max >= (50000 - node_5_9_deadline) * (1 - 0) - (node_5_9_phi - 0) * 0 + node_5_9_deadline - node_5_9_phi
+node_5_10_deadline >= 1679
+node_5_10_deadline <= 50000
+node_5_10_phi >= 0
+node_5_10_phi <= 50000 - node_5_10_deadline
+max >= (node_5_10_phi - 0) * 0 - (50000 - node_5_10_deadline) * (1 - 0) + node_5_10_deadline - node_5_10_phi
+max >= (50000 - node_5_10_deadline) * (1 - 0) - (node_5_10_phi - 0) * 0 + node_5_10_deadline - node_5_10_phi
+node_5_11_deadline >= 794
+node_5_11_deadline <= 40598
+node_5_11_phi >= 9827
+node_5_11_phi <= 50000 - node_5_11_deadline
+max >= (node_5_11_phi - 9827) * 0.586212046069548 - (40598 - node_5_11_deadline) * (1 - 0.586212046069548) + node_5_11_deadline - node_5_11_phi
+max >= (40598 - node_5_11_deadline) * (1 - 0.586212046069548) - (node_5_11_phi - 9827) * 0.586212046069548 + node_5_11_deadline - node_5_11_phi
+ -(1 - 0.75 * 0.75)  + 926 / node_5_7_deadline + 5692 / node_5_8_deadline + 1469 / node_5_9_deadline + 1679 / node_5_10_deadline + 794 / node_5_11_deadline <= 0
+node_0_7_deadline >= 1827
+node_0_7_deadline <= 50000
+node_0_7_phi >= 0
+node_0_7_phi <= 50000 - node_0_7_deadline
+max >= (node_0_7_phi - 0) * 1 - (50000 - node_0_7_deadline) * (1 - 1) + node_0_7_deadline - node_0_7_phi
+max >= (50000 - node_0_7_deadline) * (1 - 1) - (node_0_7_phi - 0) * 1 + node_0_7_deadline - node_0_7_phi
+node_0_8_deadline >= 336
+node_0_8_deadline <= 50000
+node_0_8_phi >= 0
+node_0_8_phi <= 50000 - node_0_8_deadline
+max >= (node_0_8_phi - 0) * 1 - (50000 - node_0_8_deadline) * (1 - 1) + node_0_8_deadline - node_0_8_phi
+max >= (50000 - node_0_8_deadline) * (1 - 1) - (node_0_8_phi - 0) * 1 + node_0_8_deadline - node_0_8_phi
+node_0_9_deadline >= 1107
+node_0_9_deadline <= 50000
+node_0_9_phi >= 0
+node_0_9_phi <= 50000 - node_0_9_deadline
+max >= (node_0_9_phi - 0) * 0 - (50000 - node_0_9_deadline) * (1 - 0) + node_0_9_deadline - node_0_9_phi
+max >= (50000 - node_0_9_deadline) * (1 - 0) - (node_0_9_phi - 0) * 0 + node_0_9_deadline - node_0_9_phi
+node_0_10_deadline >= 3985
+node_0_10_deadline <= 75000
+node_0_10_phi >= 0
+node_0_10_phi <= 75000 - node_0_10_deadline
+max >= (node_0_10_phi - 0) * 0 - (75000 - node_0_10_deadline) * (1 - 0) + node_0_10_deadline - node_0_10_phi
+max >= (75000 - node_0_10_deadline) * (1 - 0) - (node_0_10_phi - 0) * 0 + node_0_10_deadline - node_0_10_phi
+node_0_11_deadline >= 2758
+node_0_11_deadline <= 40530
+node_0_11_phi >= 9137
+node_0_11_phi <= 50000 - node_0_11_deadline
+max >= (node_0_11_phi - 9137) * 0.44125153199613404 - (40530 - node_0_11_deadline) * (1 - 0.44125153199613404) + node_0_11_deadline - node_0_11_phi
+max >= (40530 - node_0_11_deadline) * (1 - 0.44125153199613404) - (node_0_11_phi - 9137) * 0.44125153199613404 + node_0_11_deadline - node_0_11_phi
+ -(1 - 0.75 * 0.75)  + 1827 / node_0_7_deadline + 336 / node_0_8_deadline + 1107 / node_0_9_deadline + 3985 / node_0_10_deadline + 2758 / node_0_11_deadline <= 0
