@@ -39,9 +39,9 @@ class Solver:
                 self.f.writelines("{}_phi\n".format(task.name))
                 self.f.writelines("{}_deadline\n".format(task.name))
 
-    def __build_constrains(self):
+    def __build_constraints(self):
         '''
-        Build constrains
+        Build constraints
         '''
         s = self._solver
         for node in self._task_dict:
@@ -57,19 +57,19 @@ class Solver:
                 _wcet0 = int(task.wcet * 1000)
                 _period0 = int(task.peroid * 1000)
                 _delta = task.delta
-                # constrains for d
+                # constraints for d
                 _d = self._vars['{}_deadline'.format(task.name)]
                 s.addConstr(_d >= _wcet0, 'c_{}_d_0'.format(task.name))
                 s.addConstr(_d <= _d0, 'c_{}_d_1'.format(task.name))
                 self.f.writelines("{} >= {}\n".format('{}_deadline'.format(task.name), _wcet0))
                 self.f.writelines("{} <= {}\n".format('{}_deadline'.format(task.name), _d0))
-                # constrains for phi
+                # constraints for phi
                 _phi = self._vars['{}_phi'.format(task.name)]
                 s.addConstr(_phi >= _phi0, 'c_{}_phi_0'.format(task.name))
                 s.addConstr(_phi <= _period0 - _d , 'c_{}_phi_1'.format(task.name))
                 self.f.writelines("{} >= {}\n".format('{}_phi'.format(task.name), _phi0))
                 self.f.writelines("{} <= {} - {}\n".format('{}_phi'.format(task.name), _period0, '{}_deadline'.format(task.name)))
-                # part of util constrains
+                # part of util constraints
                 # expr += _wcet / _d
                 expr_str += "{} / {}".format(_wcet0, '{}_deadline'.format(task.name))
                 # max
@@ -87,7 +87,7 @@ class Solver:
                 # Not right
                 _expr_temp = 5 * _wcet0 / ( 0.95 - self._free_util)
                 s.addConstr(_d >= _expr_temp, 'd_{}'.format(task.name))
-            # Add util constrains
+            # Add util constraints
             # s.addConstr(expr <= 0, 'u_{}'.format(node.name))
             self.f.writelines("{} <= 0\n".format(expr_str))
 
@@ -101,9 +101,9 @@ class Solver:
             # build var
             f.writelines("###### Vars ######\n")
             self.__build_var()
-            # build constrains
+            # build constraints
             f.writelines("###### Contrains ######\n")
-            self.__build_constrains()
+            self.__build_constraints()
             return
             # solver
             print("Slover started!")

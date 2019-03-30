@@ -33,9 +33,9 @@ class Solver:
                 self._var_name_map["{}_phi".format(task.name)] = z3.Int("{}_phi".format(task.name))
                 self._var_name_map["{}_deadline".format(task.name)] = z3.Int("{}_deadline".format(task.name))
 
-    def __build_constrains(self):
+    def __build_constraints(self):
         '''
-        Build constrains
+        Build constraints
         '''
         s = self._solver
 
@@ -50,15 +50,15 @@ class Solver:
                 _d0 = int(task.deadline0 * 1000)
                 _wcet0 = int(task.wcet * 1000)
                 _delta = task.delta
-                # constrains for d
+                # constraints for d
                 _d = self._var_name_map['{}_deadline'.format(task.name)]
                 s.add(_d >= 0)
                 s.add(_d <= _d0)
-                # constrains for phi
+                # constraints for phi
                 _phi = self._var_name_map['{}_phi'.format(task.name)]
                 s.add(_phi >= _phi0)
                 s.add(_phi <= _d - _wcet0)
-                # part of util constrains
+                # part of util constraints
                 expr += _wcet0 / _d
                 # max
                 _max = self._var_name_map['max']
@@ -69,7 +69,7 @@ class Solver:
                 # Not right
                 _expr_temp = 5 * _wcet0 / ( 0.95 - self._free_util)
                 s.add(_d >= _expr_temp)
-            # Add util constrains
+            # Add util constraints
             #s.add(expr <= (1-self._free_util))
 
         # set objective: min_max
@@ -80,8 +80,8 @@ class Solver:
     def solve(self, file_path: str):
         # build var
         self.__build_var()
-        # build constrains
-        h = self.__build_constrains()
+        # build constraints
+        h = self.__build_constraints()
         # solver
         print("Slover started!")
         _t0 = time.clock()
