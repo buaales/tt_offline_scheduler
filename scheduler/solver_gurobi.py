@@ -13,7 +13,7 @@ class Solver:
         self._free_util = free_util
         self._solver = Model("tt_schduler")
         self._vars = {}
-        self.f = open("../output/contrain_sample.txt", 'w')
+        self.f = open("./output/constraint_sample.txt", 'w')
 
     def __build_var(self):
         '''
@@ -71,7 +71,7 @@ class Solver:
                 self.f.writelines("{} <= {} - {}\n".format('{}_phi'.format(task.name), _period0, '{}_deadline'.format(task.name)))
                 # part of util constraints
                 # expr += _wcet / _d
-                expr_str += "{} / {}".format(_wcet0, '{}_deadline'.format(task.name))
+                expr_str += " + {} / {}".format(_wcet0, '{}_deadline'.format(task.name))
                 # max
                 _max = self._vars['max']
                 _expr_temp = (_phi - _phi0) * _delta - (_d0 - _d) * (1 - _delta) + _d - _phi
@@ -99,10 +99,10 @@ class Solver:
     def solve(self, file_path: str):
         try:
             # build var
-            f.writelines("###### Vars ######\n")
+            self.f.writelines("###### Vars ######\n")
             self.__build_var()
             # build constraints
-            f.writelines("###### Contrains ######\n")
+            self.f.writelines("###### Contrains ######\n")
             self.__build_constraints()
             return
             # solver
