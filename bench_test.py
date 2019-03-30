@@ -11,7 +11,7 @@ if __name__ == '__main__':
     peroids = [50, 75]
     util = 0.75
     gran = 1
-    net_type = 0
+    net_type = 2
     times = 10
     # call gen_model
     network, task_dict = gb.gen_model(peroids, util, gran, net_type, times)
@@ -43,10 +43,10 @@ if __name__ == '__main__':
     f.close()
 
     # test solver
-    solver = tsolver.Solver(network, task_dict, util * 0.75)
-    solver.solve("./output/gurobi.txt")
+    #solver = tsolver.Solver(network, task_dict, util * 0.75)
+    #solver.solve("./output/gurobi.txt")
     
-    '''
+    
     sc = mmodel.Scheduler(network)
     for node in task_dict:
         sc.add_apps(task_dict[node])
@@ -55,5 +55,5 @@ if __name__ == '__main__':
     sc.add_constrains(hook)
     df = hook.to_dataframe()
     an = analyzer.Analyzer(df, network, sc.app_lcm)
-    '''
-    #an.print_by_time()
+    
+    an.print_by_time()

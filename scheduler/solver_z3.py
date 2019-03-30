@@ -66,8 +66,11 @@ class Solver:
                 s.add(_max >= _expr_temp)
                 _expr_temp = (_d0 - _d) * (1 - _delta) - (_phi - _phi0) * _delta + _d - _phi
                 s.add(_max >= _expr_temp)
+                # Not right
+                _expr_temp = 5 * _wcet0 / ( 0.95 - self._free_util)
+                s.add(_d >= _expr_temp)
             # Add util constrains
-            s.add(expr <= (1-self._free_util))
+            #s.add(expr <= (1-self._free_util))
 
         # set objective: min_max
         _max = self._var_name_map['max']
