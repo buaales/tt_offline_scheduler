@@ -20,7 +20,7 @@ class Solver:
         Build vars for every communication task
         '''
         # build for min_max Intermediate variables
-        self._var_name_map["max"] = z3.Int("max")
+        self._var_name_map["max"] = z3.Real("max")
 
         for node in self._task_dict:
             tasks = self._task_dict[node]
@@ -30,8 +30,8 @@ class Solver:
                 if isinstance(task, TModel.FreeTask):
                     continue
                 # phi var and deadline var
-                self._var_name_map["{}_phi".format(task.name)] = z3.Int("{}_phi".format(task.name))
-                self._var_name_map["{}_deadline".format(task.name)] = z3.Int("{}_deadline".format(task.name))
+                self._var_name_map["{}_phi".format(task.name)] = z3.Real("{}_phi".format(task.name))
+                self._var_name_map["{}_deadline".format(task.name)] = z3.Real("{}_deadline".format(task.name))
 
     def __build_constraints(self):
         '''

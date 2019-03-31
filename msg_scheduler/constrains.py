@@ -16,7 +16,7 @@ class Z3Hook(ModelHook):
     def get_var(self, frame: Frame, frame_seq_in_peroid, link: Link):
         name = self.get_var_name(frame, frame_seq_in_peroid, link)
         if name not in self._var_name_map:
-            var = z3.Int(name)
+            var = z3.Real(name)
             self._var_name_map[name] = var
             self._solver.add(var >= frame_seq_in_peroid * frame.peroid)
             self._solver.add(var < (frame_seq_in_peroid + 1) * frame.peroid)
