@@ -5,13 +5,14 @@ from msg_scheduler import model as mmodel
 from msg_scheduler import constrains, analyzer
 from scheduler import model as tmodel
 from scheduler import solver_z3 as tsolver
+from scheduler import edfsim
 
 if __name__ == '__main__':
     # setup param
     peroids = [50, 75]
     util = 0.75
     gran = 1
-    net_type = 2
+    net_type = 1
     times = 10
     # call gen_model
     network, task_dict = gb.gen_model(peroids, util, gran, net_type, times)
@@ -44,8 +45,33 @@ if __name__ == '__main__':
 
     # test solver
     solver = tsolver.Solver(network, task_dict, util * 0.75)
-    solver.solve("./output/gurobi.txt")
+    model = solver.solve("./output/gurobi.txt")
+
+    if not model:
+        print("Have no solution!");
+        exit(0)
+
+    #for var in model:
+    #    _val = model[var].as_decimal(2)
+    #    print('var: {}, value: {}'.format(var, _val))
+    for node in task_dict:
+        tasks = task_dict[node]
+        # re-setup phi and deadline
+        tasks4edf = []
+        for task in tasks:
+            # skip free task
+            if isinstance(task, tmodel.FreeTask):
+                continue
+            # re-setup
+            _phi = model['{}_phi'.format(task.name)].as_decimal(2)
+            _deadline = model['{}_deadline'.format(task.name)].as_decimal(2)
+            _task: edfsim.Task = edfsim.Task(C=task.wcet, D=_deadline, T=task.period, offset=_phi, tid=task.name)
+            tasks4edf.append(_task)
+        # do edf sim
+        edfsim.testEDFSim(tasks4edf,[])
+
     
+    '''
     sc = mmodel.Scheduler(network)
     for node in task_dict:
         sc.add_apps(task_dict[node])
@@ -55,5 +81,6 @@ if __name__ == '__main__':
     df = hook.to_dataframe()
     an = analyzer.Analyzer(df, network, sc.app_lcm)
     
-    an.print_by_time()
+    #an.print_by_time()
+    '''
     

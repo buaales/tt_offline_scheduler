@@ -85,13 +85,12 @@ class Solver:
         # solver
         print("Slover started!")
         _t0 = time.clock()
-        print(self._solver.check())
-        print(self._solver.lower(h))
-        print(self._solver.model())
+        res = self._solver.check()
         _t1 = time.clock()
         print("Slover finished in %f s!" % (_t1 - _t0))
-
-        # output
-        #with open(file_path, 'w') as f:
-        #    for var in self._solver.getVars():
-        #        f.writelines('{}, {}\n'.format(var.varName, var.x))
+        if res != z3.sat:
+            return None
+        #self._solver.lower(h)
+        model = self._solver.model()
+        for var in model:
+            print(var.name)
