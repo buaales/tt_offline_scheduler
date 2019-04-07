@@ -1,4 +1,5 @@
 import sys
+import time
 import gen_bench as gb
 
 from msg_scheduler import model as mmodel
@@ -35,14 +36,14 @@ def record_test_model(file, task_dict):
 if __name__ == '__main__':
     # setup param
     peroids = [50000, 75000] #us
-    util = 0.75
-    gran = 100 # us
+    util = 0.5
+    gran = 10 # us
     net_type = 0
     times = 10
     # call gen_model
     network, task_dict = gb.gen_test_model(peroids, util, gran, net_type, times)
     # draw the network
-    network.draw()
+    # network.draw()
     # check param
     with open("./output/bench_test.txt", 'w') as f:
         record_test_model(f, task_dict)
@@ -50,19 +51,31 @@ if __name__ == '__main__':
 
     # test solver
     solver = tsolver.Solver(network, task_dict, util * 0.75)
-    solver_result_dict = solver.solve("./output/gurobi.txt")
+    solver_result_dict = solver.solve()
 
     if not solver_result_dict:
         print("Have no solution!")
         exit(0)
-
+    
+    # 测试密度
     for node in task_dict:
         tasks = task_dict[node]
+        s = 0
+        for task in tasks:
+            if isinstance(task, tmodel.FreeTask):
+                s += task.wcet / task.deadline0
+            else:
+                s += task.wcet / solver_result_dict["{}_deadline".format(task.name)]
+        print("{}: s={}".format(node.name, s))
+    
+    for node in task_dict:
+        tasks = task_dict[node]
+        print(node.name)
         # re-setup phi and deadline
         tasks4edf = []
         for task in tasks:
             _tid = int(task.name.split('_')[2])
-
+            #print(_tid)
             if isinstance(task, tmodel.FreeTask):
                 _C = int(task.wcet)
                 _T = int(task.peroid)
@@ -80,20 +93,26 @@ if __name__ == '__main__':
         # do edf sim
         # dump taskset
         for task in tasks4edf:
-            print('Task(tid={}, T={}, C={}, D={}, offset={}'.format(task.tid, task.T, task.C, task.D, task.offset))
+            print('Task(tid={}, T={}, C={}, D={}, offset={})'.format(task.tid, task.T, task.C, task.D, task.offset))
         edfsim.testEDFSim(tasks4edf,[])
-
     
-    '''
+    
+    gb.setup_frame_constraints(task_dict, solver_result_dict)
+    
     sc = mmodel.Scheduler(network)
     for node in task_dict:
         sc.add_apps(task_dict[node])
 
+    
     hook = constrains.Z3Hook()
     sc.add_constrains(hook)
+    _t0 = time.clock()
     df = hook.to_dataframe()
+    _t1 = time.clock()
     an = analyzer.Analyzer(df, network, sc.app_lcm)
-    
-    #an.print_by_time()
-    '''
-    
+    an.print_by_time()
+    #an.animate()
+    print("Message Passing Solved in {} s!".format(_t1-_t0))
+
+    while True:
+        pass

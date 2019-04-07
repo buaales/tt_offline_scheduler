@@ -1,4 +1,5 @@
 import subprocess
+import sys
 from collections import defaultdict
 
 import pandas as pd
@@ -11,7 +12,8 @@ import matplotlib.animation as animation
 from .model import Network, Link, Frame, Node
 import io
 
-matplotlib.use("TkAgg")
+if sys.platform == 'darwin':
+    matplotlib.use("TkAgg")
 
 
 class Analyzer:

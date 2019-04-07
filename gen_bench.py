@@ -177,6 +177,8 @@ def gen_phi0_and_d0(task_dict, network, delay_max, delay_min):
         _consumer = task_dict[node_2][9]
         _s = min((delay_max-delay_min)/(2*_shaper.delta),
                 (delay_max-delay_min)/(2*(1-_shaper.delta)))
+        _s = _s /2 
+        print('_s: {}'.format(_s))
 
         _producer.offset0 = 0
         _producer.deadline0 = _producer.peroid # 无用，乘0
@@ -190,6 +192,7 @@ def gen_phi0_and_d0(task_dict, network, delay_max, delay_min):
         _consumer = task_dict[node_1][9]
         _s = min((delay_max-delay_min)/(2*_shaper.delta),
                 (delay_max-delay_min)/(2*(1-_shaper.delta)))
+        _s = _s / 2
 
         _producer.offset0 = 0
         _producer.deadline0 = _producer.peroid # 无用，乘0
@@ -261,11 +264,30 @@ def gen_test_model(peroids: list, utilization: float, granuolarity: int, net_typ
     for node in task_dict:
         gen_comm_delta_for_each_node(task_dict[node])
     # 6. 计算phi_0参数和D_0参数
-    gen_phi0_and_d0(task_dict, network, 10, 8)
+    gen_phi0_and_d0(task_dict, network, 1000, 700)
 
     return network, task_dict
 
-def setup_frame_constraints(task_dict: dict, offset: dict, deadline: dict):
+def setup_frame_constraints(task_dict: dict, solver_ret_dcit: dict):
+    
+    for node in task_dict:
+        tasks = task_dict[node]
+        for task in tasks:
+            if isinstance(task, tmodel.FreeTask) or isinstance(task, tmodel.ConsumerTask):
+                continue
+            # check
+            assert task.vlink != None, "Shaper or Producer's vlink is None!"
+            # setup frame constraints
+            _receiver = task.vlink.receive_task
+            # msg start after sender's deadline
+            _offset =  solver_ret_dcit['{}_phi'.format(task.name)] + solver_ret_dcit['{}_deadline'.format(task.name)]
+            # msg end before receiver's offset
+            _deadline = solver_ret_dcit['{}_phi'.format(_receiver.name)]
+            print('{}, {}'.format(task.name, _receiver.name))
+            print('{}, {}, {}, {}'.format(task.peroid, _offset, _deadline, _receiver.offset0))
+            task.set_frame(peroid=task.peroid, min_offset=_offset, max_offset=_deadline)
+    
+    return
 
 # 测试生成的图是否合格
 '''

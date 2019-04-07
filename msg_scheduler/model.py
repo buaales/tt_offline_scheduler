@@ -1,11 +1,12 @@
 import typing
-from collections import defaultdict
 import networkx
 import networkx.algorithms.approximation
 import matplotlib.pyplot as plt
 import pprint
 import math
 import pandas
+from fractions import Fraction
+from collections import defaultdict
 
 
 class Frame:
@@ -260,11 +261,12 @@ class VirtualLink(NamedObj):
     """数据流虚链路"""
 
     def __init__(self, name: str, network: Network, app: 'Application', sender: Node,
-                 receivers: typing.List[Node]):
+                 receivers: typing.List[Node], receive_task):
         super().__init__(name)
         self._network: Network = network
         self._sender: Node = sender
         self._receivers: typing.List[Node] = receivers
+        self._receive_task = receive_task
         self._app: 'Application' = app
 
         self._steiner_tree: networkx.classes.Graph = None
@@ -290,6 +292,10 @@ class VirtualLink(NamedObj):
     @property
     def app(self):
         return self._app
+    
+    @property
+    def receive_task(self):
+        return self._receive_task
 
     def draw(self):
         g = self._network.graph.to_undirected()
@@ -320,8 +326,10 @@ class Application(NamedObj):
     def set_virtual_link(self, receivers: typing.List['Application']) -> 'Application':
         if self._frame is not None:
             raise Exception("only one vlink in per application")
+        if len(receivers) != 1:
+            raise Exception("only one receiver in per vlink")
         vlink = VirtualLink(f'{self.name}_vlink', self._network, self, self._host_node, [
-            x._host_node for x in receivers])
+            x._host_node for x in receivers], receivers[0])
         self._vlink = vlink
         return self
 
@@ -459,7 +467,10 @@ class ModelHook:
         result = self.solve()
         for key, value in result.items():
             app, frame, link = self.extract_var_name(key)
-            df.loc[len(df)] = [app, frame, link, int(str(value))]
+            _fraction: Fraction = value.as_fraction()
+            _numerator: int = _fraction.numerator
+            _denominator: int = _fraction.denominator
+            df.loc[len(df)] = [app, frame, link, _numerator // _denominator]
         return df
 
 

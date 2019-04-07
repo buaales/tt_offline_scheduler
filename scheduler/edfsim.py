@@ -304,6 +304,7 @@ def testEDFSim(freeTaskList: list, smtTaskList: list):
 
     sim.run()
     logs = sim.getExeTaskTraceList()
+    print(logs)
     print("-----------------------------------------------")
     #for _trace in logs:
     #    print("task %2d sid %2d runs at time %3d for %3d MA" % (_trace[0],_trace[1],_trace[2],_trace[3]) )

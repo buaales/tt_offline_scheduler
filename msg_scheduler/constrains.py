@@ -31,7 +31,7 @@ class Z3Hook(ModelHook):
         # 应用发送帧的offset应该满足min和max约束
         if frame_seq_in_peroid == 0:
             self._solver.add(self.get_var(frame, frame_seq_in_peroid, start_link) >= frame.min_offset)
-            self._solver.add(self.get_var(frame, frame_seq_in_peroid, start_link) <= frame.max_offset)
+            #self._solver.add(self.get_var(frame, frame_seq_in_peroid, start_link) <= frame.max_offset)
 
         # 应用发送帧的间隔必须等于周期
         if frame_seq_in_peroid > 0:
@@ -94,9 +94,12 @@ class Z3Hook(ModelHook):
         super().on_received(app, receiver, frame, frame_seq_in_peroid, first_link, last_link)
         self._solver.add(self.get_var(frame, frame_seq_in_peroid, last_link) -
                          self.get_var(frame, frame_seq_in_peroid, first_link) <= app.peroid)
+        if frame_seq_in_peroid == 0:
+            self._solver.add(self.get_var(frame, frame_seq_in_peroid, last_link) <= frame.max_offset)
         if frame_seq_in_peroid != 0:
             self._solver.add(self.get_var(frame, frame_seq_in_peroid, last_link) -
                              self.get_var(frame, frame_seq_in_peroid - 1, last_link) == app.peroid)
+            self._solver.add(self.get_var(frame, frame_seq_in_peroid, last_link) <= frame.max_offset + app.peroid * frame_seq_in_peroid)
 
     @functools.lru_cache(maxsize=1)
     def solve(self):
