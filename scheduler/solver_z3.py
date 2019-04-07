@@ -91,6 +91,10 @@ class Solver:
         if res != z3.sat:
             return None
         #self._solver.lower(h)
+
+        # return a dict {var.name: value}
         model = self._solver.model()
+        retdict = {}
         for var in model:
-            print(var.name)
+            retdict[var.name] = model[var].as_decimal(2)
+        return retdict

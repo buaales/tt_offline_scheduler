@@ -17,6 +17,8 @@ class Frame:
         self._peroid: int = peroid
         self._length: int = length
         self._id = Frame._id
+        self._min_offset = 0
+        self._max_offset = peroid
         Frame._id += 1
 
     @property
@@ -50,6 +52,22 @@ class Frame:
     @offset.setter
     def offset(self, length):
         self._offset = length
+
+    @property
+    def min_offset(self):
+        return self._min_offset
+
+    @min_offset.setter
+    def min_offset(self, min_offset):
+        self._min_offset = min_offset
+
+    @property
+    def max_offset(self):
+        return self._max_offset
+
+    @max_offset.setter
+    def max_offset(self, max_offset):
+        self._max_offset = max_offset        
 
     def __eq__(self, value: 'Frame'):
         return value._id == self._id
@@ -307,7 +325,7 @@ class Application(NamedObj):
         self._vlink = vlink
         return self
 
-    def set_frame(self, peroid: int, max_delay: int = 9999) -> 'Application':
+    def set_frame(self, peroid: int, max_delay: int = 9999, min_offset: int = 0, max_offset: int = 9999999) -> 'Application':
         """定义一个在某虚链路上发送的数据帧
 
         Arguments:
@@ -317,6 +335,8 @@ class Application(NamedObj):
         if self._frame is not None:
             raise Exception("only one frame in per application")
         self._frame = Frame(self, peroid)
+        self._frame.min_offset = min_offset
+        self._frame.max_offset = max_offset
         self._max_delay = max_delay
         self._peroid = peroid
         return self
@@ -432,7 +452,7 @@ class ModelHook:
         self._app_last_link[app] = last_link
 
     def solve(self):
-        pass
+        return {}
 
     def to_dataframe(self):
         df = pandas.DataFrame(columns=['app', 'frame', 'link', 'time_slot'])

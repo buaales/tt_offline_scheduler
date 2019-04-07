@@ -45,15 +45,12 @@ if __name__ == '__main__':
 
     # test solver
     solver = tsolver.Solver(network, task_dict, util * 0.75)
-    model = solver.solve("./output/gurobi.txt")
+    solver_result_dict = solver.solve("./output/gurobi.txt")
 
-    if not model:
-        print("Have no solution!");
+    if not solver_result_dict:
+        print("Have no solution!")
         exit(0)
 
-    #for var in model:
-    #    _val = model[var].as_decimal(2)
-    #    print('var: {}, value: {}'.format(var, _val))
     for node in task_dict:
         tasks = task_dict[node]
         # re-setup phi and deadline
@@ -63,8 +60,8 @@ if __name__ == '__main__':
             if isinstance(task, tmodel.FreeTask):
                 continue
             # re-setup
-            _phi = model['{}_phi'.format(task.name)].as_decimal(2)
-            _deadline = model['{}_deadline'.format(task.name)].as_decimal(2)
+            _phi = solver_result_dict['{}_phi'.format(task.name)]
+            _deadline = solver_result_dict['{}_deadline'.format(task.name)]
             _task: edfsim.Task = edfsim.Task(C=task.wcet, D=_deadline, T=task.period, offset=_phi, tid=task.name)
             tasks4edf.append(_task)
         # do edf sim

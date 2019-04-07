@@ -28,6 +28,11 @@ class Z3Hook(ModelHook):
                             start_link: Link):
         super().on_send_from_sender(app, node, frame, frame_seq_in_peroid, start_link)
 
+        # 应用发送帧的offset应该满足min和max约束
+        if frame_seq_in_peroid == 0:
+            self._solver.add(self.get_var(frame, frame_seq_in_peroid, start_link) >= frame.min_offset)
+            self._solver.add(self.get_var(frame, frame_seq_in_peroid, start_link) <= frame.max_offset)
+
         # 应用发送帧的间隔必须等于周期
         if frame_seq_in_peroid > 0:
             self._solver.add(
