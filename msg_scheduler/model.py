@@ -266,7 +266,7 @@ class VirtualLink(NamedObj):
         self._network: Network = network
         self._sender: Node = sender
         self._receivers: typing.List[Node] = receivers
-        self._receive_task = receive_task
+        self._receive_task = receive_task # TODO: TEMP ADD
         self._app: 'Application' = app
 
         self._steiner_tree: networkx.classes.Graph = None

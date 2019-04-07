@@ -132,5 +132,5 @@ class Solver:
             _fraction: Fraction = model[var].as_fraction()
             _numerator: int = _fraction.numerator
             _denominator: int = _fraction.denominator
-            retdict[var.name()] =  _numerator // _denominator
+            retdict[var.name()] =  _numerator // _denominator # precision: 1us
         return retdict

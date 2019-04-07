@@ -37,7 +37,7 @@ if __name__ == '__main__':
     # setup param
     peroids = [50000, 75000] #us
     util = 0.5
-    gran = 10 # us
+    gran = 1 # us
     net_type = 0
     times = 10
     # call gen_model

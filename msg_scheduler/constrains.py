@@ -105,7 +105,7 @@ class Z3Hook(ModelHook):
     def solve(self):
         if self._solver.check() != z3.sat:
             print("Cannot solve")
-            return
+            return None
         model = self._solver.model()
         res = {name: model[var] for name, var in self._var_name_map.items()}
         return res
