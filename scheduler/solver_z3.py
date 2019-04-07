@@ -5,6 +5,7 @@ import typing
 
 from msg_scheduler import model as MModel
 from scheduler import model as TModel
+from fractions import Fraction
 
 class Solver:
     ''' The Solver Class '''
@@ -46,9 +47,9 @@ class Solver:
                 # skip free-task
                 if isinstance(task, TModel.FreeTask):
                     continue
-                _phi0 = int(task.offset0 * 1000)
-                _d0 = int(task.deadline0 * 1000)
-                _wcet0 = int(task.wcet * 1000)
+                _phi0 = int(task.offset0)
+                _d0 = int(task.deadline0)
+                _wcet0 = int(task.wcet)
                 _delta = task.delta
                 # constraints for d
                 _d = self._var_name_map['{}_deadline'.format(task.name)]
@@ -96,5 +97,8 @@ class Solver:
         model = self._solver.model()
         retdict = {}
         for var in model:
-            retdict[var.name] = model[var].as_decimal(2)
+            _fraction: Fraction = model[var].as_fraction()
+            _numerator: int = _fraction.numerator
+            _denominator: int = _fraction.denominator
+            retdict[var.name()] =  _numerator // _denominator
         return retdict

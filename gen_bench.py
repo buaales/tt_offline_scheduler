@@ -30,11 +30,9 @@ def gen_network_from_file(path: str):
     for e in g.edges:
         network.add_link(node_name_map[e[0]], node_name_map[e[1]])
 
-    # nx.draw_networkx(g)
-
     return network
 
-def gen_task_wcet_for_each_node(tasks, peroids, utilization):
+def gen_task_wcet_for_each_node(tasks, peroids, utilization, granuolarity):
     # 1. 验证所有任务周期设置正确
     for task in tasks:
         assert task.peroid in peroids, 'Gen_task_wcet: 周期检查失败!'
@@ -43,19 +41,15 @@ def gen_task_wcet_for_each_node(tasks, peroids, utilization):
     u_coum = utilization * 0.25
     temps = [random.randint(1000, 9999) for x in range(6)]
     frees = [temps[i]/sum(temps)*u_free for i in range(6)]
-    #print(frees)
-    #print(sum(frees))
+    
     temps = [random.randint(1000, 9999) for x in range(6)]
     coums = [temps[i]/sum(temps)*u_coum for i in range(6)]
-    #print(coums)
-    #print(sum(coums))
-    #print(sum(frees)+sum(coums))
 
     for i in range(6):
-        tasks[i].wcet = frees[i] * tasks[i].peroid
+        tasks[i].wcet = ((frees[i] * tasks[i].peroid) // granuolarity) * granuolarity
 
     for i in range(6):
-        tasks[i+6].wcet = coums[i] * tasks[i+6].peroid
+        tasks[i+6].wcet = ((coums[i] * tasks[i+6].peroid) // granuolarity) * granuolarity
 
 def gen_task_set_for_each_node(network, node, peroids, utilization):
     '''
@@ -119,27 +113,27 @@ def gen_virtual_links(task_dict, network: mmodel.Network, peroids):
         _task_list_1[7].peroid = _peroid #node_1_p_1
         _task_list_2[11].peroid = _peroid #node_2_s_1
         _task_list_1[9].peroid = _peroid #node_1_c_1
-        _task_list_1[7].set_virtual_link([_task_list_2[11]]).set_frame(_peroid)
-        _task_list_2[11].set_virtual_link([_task_list_1[9]]).set_frame(_peroid)
+        _task_list_1[7].set_virtual_link([_task_list_2[11]])
+        _task_list_2[11].set_virtual_link([_task_list_1[9]])
         # 2.2
         _peroid = random.choice(peroids)
         _task_list_2[7].peroid = _peroid
         _task_list_1[11].peroid = _peroid
         _task_list_2[9].peroid = _peroid
-        _task_list_2[7].set_virtual_link([_task_list_1[11]]).set_frame(_peroid)
-        _task_list_1[11].set_virtual_link([_task_list_2[9]]).set_frame(_peroid)
+        _task_list_2[7].set_virtual_link([_task_list_1[11]])
+        _task_list_1[11].set_virtual_link([_task_list_2[9]])
         # 2.3
         _peroid = random.choice(peroids)
         #print("1: {}".format(_peroid))
         _task_list_1[8].peroid = _peroid
         _task_list_2[10].peroid = _peroid
-        _task_list_1[8].set_virtual_link([_task_list_2[10]]).set_frame(_peroid)
+        _task_list_1[8].set_virtual_link([_task_list_2[10]])
         # 2.4
         _peroid = random.choice(peroids)
         #print("2: {}".format(_peroid))
         _task_list_2[8].peroid = _peroid
         _task_list_1[10].peroid = _peroid
-        _task_list_2[8].set_virtual_link([_task_list_1[10]]).set_frame(_peroid)
+        _task_list_2[8].set_virtual_link([_task_list_1[10]])
 
         node_1, node_2 = None, None
 
@@ -220,7 +214,7 @@ def gen_phi0_and_d0(task_dict, network, delay_max, delay_min):
         # clean up
         node_1, node_2 = None, None
 
-def gen_model(peroids, utilization: float, granuolarity: int, net_type: int, times: int):
+def gen_test_model(peroids: list, utilization: float, granuolarity: int, net_type: int, times: int):
     '''
     功能描述：
         生成测试集
@@ -228,7 +222,8 @@ def gen_model(peroids, utilization: float, granuolarity: int, net_type: int, tim
         peroids: 任务周期集合, 单位：毫秒
         utilization: 任务集总体利用率
         granuolarity: 任务调度时间粒度，单位：微秒
-        net_type: small(0), medium(1), large(2)
+        net_type: 任务集网路规模，small(0), medium(1), large(2)
+        times: 测试轮次
     '''
     # Check utilization
     if (utilization < 0) or (utilization > 1):
@@ -237,10 +232,13 @@ def gen_model(peroids, utilization: float, granuolarity: int, net_type: int, tim
 
     # 1. 从生成好的图像文件中获取网络
     if net_type == 0:
+        # small network
         path = './output/graph_small_gen/graph_{}.graphml'.format(times)
     elif net_type == 1:
+        # medium network
         path = './output/graph_medium_gen/graph_{}.graphml'.format(times)
     elif net_type == 2:
+        # large network
         path = './output/graph_large_gen/graph_{}.graphml'.format(times)
     else:
         print("[Benchmark Gen][ERR]: Unkown network type")
@@ -258,7 +256,7 @@ def gen_model(peroids, utilization: float, granuolarity: int, net_type: int, tim
     gen_virtual_links(task_dict, network, peroids)
     # 4. 计算任务集中任务的Wect
     for node in task_dict:
-        gen_task_wcet_for_each_node(task_dict[node], peroids, utilization)
+        gen_task_wcet_for_each_node(task_dict[node], peroids, utilization, granuolarity)
     # 5. 生成亲和性参数delta
     for node in task_dict:
         gen_comm_delta_for_each_node(task_dict[node])
@@ -267,13 +265,7 @@ def gen_model(peroids, utilization: float, granuolarity: int, net_type: int, tim
 
     return network, task_dict
 
-# 生成文本格式的图存储到文件中
-#if __name__ == '__main__':
-#    peroids = [10, 30, 100]
-#    net_type = 0
-#    times = 1
-#    u = 0.75
-#    gen_model(peroids, u, 1, net_type, times)
+def setup_frame_constraints(task_dict: dict, offset: dict, deadline: dict):
 
 # 测试生成的图是否合格
 '''
