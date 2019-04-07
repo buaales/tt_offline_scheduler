@@ -74,7 +74,7 @@ if __name__ == '__main__':
         # re-setup phi and deadline
         tasks4edf = []
         for task in tasks:
-            _tid = int(task.name.split('_')[2])
+            _tid = int(task.name.split('_')[2]) + 1
             #print(_tid)
             if isinstance(task, tmodel.FreeTask):
                 _C = int(task.wcet)
