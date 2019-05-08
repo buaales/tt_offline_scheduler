@@ -2,6 +2,7 @@ from .model import ModelHook, Application, Link, Frame, SwitchNode, EndNode
 import z3
 import typing
 import functools
+import time
 
 
 class Z3Hook(ModelHook):
@@ -104,7 +105,8 @@ class Z3Hook(ModelHook):
     @functools.lru_cache(maxsize=1)
     def solve(self):
         if self._solver.check() != z3.sat:
-            print("Cannot solve")
+            print("\x1b[31m##### Cannot solve\x1b[0m")
+            time.sleep(3)
             return None
         model = self._solver.model()
         res = {name: model[var] for name, var in self._var_name_map.items()}

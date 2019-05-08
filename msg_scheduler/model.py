@@ -423,6 +423,7 @@ class ModelHook:
     def on_send_from_sender(self, app: Application, node: EndNode, frame: Frame, frame_seq_in_peroid: int,
                             start_link: Link):
         print(f'{app}: send from {node}')
+        pass
 
     def on_add_to_link(self, app: Application, link: Link, frame: Frame, frame_seq_in_peroid: int):
         """当新的数据帧需要经过该链路时被调用
@@ -465,6 +466,8 @@ class ModelHook:
     def to_dataframe(self):
         df = pandas.DataFrame(columns=['app', 'frame', 'link', 'time_slot'])
         result = self.solve()
+        if not result:
+            return df
         for key, value in result.items():
             app, frame, link = self.extract_var_name(key)
             _fraction: Fraction = value.as_fraction()
