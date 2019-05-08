@@ -89,11 +89,13 @@ def gen_virtual_links(task_dict, network: mmodel.Network, peroids):
     '''
     生成虚链路
     '''
+    commu_pair = dict()
     # 1. 遍历所有节点，对每两对节点进行处理
     node_num = len(network.end_nodes)
     # 验证端节点个数为偶数
     assert node_num % 2 == 0, '端节点个数不为偶数！'
     node_1, node_2 = None, None
+    _count = 0
     for node in network.end_nodes:
         # assign the first one
         if node_1 == None:
@@ -101,6 +103,8 @@ def gen_virtual_links(task_dict, network: mmodel.Network, peroids):
             continue
         # assign the second one
         node_2 = node
+        _count += 1
+        print("Doing count {}, and {} remains".format(_count, node_num//2-_count))
         # 2. Map:
         # node_1_p_1 --> node_2_s_1 --> node_1_c_1
         # node_2_p_1 --> node_1_s_1 --> node_2_c_1
@@ -115,6 +119,7 @@ def gen_virtual_links(task_dict, network: mmodel.Network, peroids):
         _task_list_1[9].peroid = _peroid #node_1_c_1
         _task_list_1[7].set_virtual_link([_task_list_2[11]])
         _task_list_2[11].set_virtual_link([_task_list_1[9]])
+        commu_pair[_task_list_2[11]] = [_task_list_1[7], _task_list_2[11], _task_list_1[9]]
         # 2.2
         _peroid = random.choice(peroids)
         _task_list_2[7].peroid = _peroid
@@ -122,20 +127,25 @@ def gen_virtual_links(task_dict, network: mmodel.Network, peroids):
         _task_list_2[9].peroid = _peroid
         _task_list_2[7].set_virtual_link([_task_list_1[11]])
         _task_list_1[11].set_virtual_link([_task_list_2[9]])
+        commu_pair[_task_list_1[11]] = [_task_list_2[7], _task_list_1[11], _task_list_2[9]]
         # 2.3
         _peroid = random.choice(peroids)
         #print("1: {}".format(_peroid))
         _task_list_1[8].peroid = _peroid
         _task_list_2[10].peroid = _peroid
         _task_list_1[8].set_virtual_link([_task_list_2[10]])
+        commu_pair[_task_list_2[10]] = [_task_list_1[8], _task_list_2[10]]
         # 2.4
         _peroid = random.choice(peroids)
         #print("2: {}".format(_peroid))
         _task_list_2[8].peroid = _peroid
         _task_list_1[10].peroid = _peroid
         _task_list_2[8].set_virtual_link([_task_list_1[10]])
+        commu_pair[_task_list_1[10]] = [_task_list_2[8], _task_list_1[10]]
 
         node_1, node_2 = None, None
+    
+    return commu_pair
 
 def gen_comm_delta_for_each_node(tasks):
     # communication task idx from 7 to 11
@@ -145,10 +155,10 @@ def gen_comm_delta_for_each_node(tasks):
         assert isinstance(_task, tmodel.CommTask), 'Gen_shaper_delta: 实例类型不为CommTask'
         # producer
         if isinstance(_task, tmodel.ProducerTask):
-            _task.delta = 1
+            _task.delta = 0
         # consumer
         elif isinstance(_task, tmodel.ConsumerTask):
-            _task.delta = 0
+            _task.delta = 1
         # shaper task
         else:
             _task.delta = random.uniform(0.4, 0.6)
@@ -178,7 +188,7 @@ def gen_phi0_and_d0(task_dict, network, delay_max, delay_min):
         _s = min((delay_max-delay_min)/(2*_shaper.delta),
                 (delay_max-delay_min)/(2*(1-_shaper.delta)))
         _s = _s /2 
-        print('_s: {}'.format(_s))
+        #print('_s: {}'.format(_s))
 
         _producer.offset0 = 0
         _producer.deadline0 = _producer.peroid # 无用，乘0
@@ -243,6 +253,9 @@ def gen_test_model(peroids: list, utilization: float, granuolarity: int, net_typ
     elif net_type == 2:
         # large network
         path = './output/graph_large_gen/graph_{}.graphml'.format(times)
+    elif net_type == 3:
+        # huge
+        path = './output/graph_huge_gen/graph_{}.graphml'.format(times)
     else:
         print("[Benchmark Gen][ERR]: Unkown network type")
         return
@@ -251,22 +264,26 @@ def gen_test_model(peroids: list, utilization: float, granuolarity: int, net_typ
 
     # 2. Gen App Sets
     # 遍历 Node节点生成任务集合
+    print('gen task')
     task_dict = {}
     for node in network.end_nodes:
         task_dict[node] = gen_task_set_for_each_node(network, node, peroids, utilization)
     # plt.show()
     # 3. 建立通信链路
-    gen_virtual_links(task_dict, network, peroids)
+    print('gen commu_pair')
+    commu_pair = gen_virtual_links(task_dict, network, peroids)
     # 4. 计算任务集中任务的Wect
+    print('gen wcet')
     for node in task_dict:
         gen_task_wcet_for_each_node(task_dict[node], peroids, utilization, granuolarity)
     # 5. 生成亲和性参数delta
+    print('gen delta')
     for node in task_dict:
         gen_comm_delta_for_each_node(task_dict[node])
     # 6. 计算phi_0参数和D_0参数
     gen_phi0_and_d0(task_dict, network, 1000, 700)
 
-    return network, task_dict
+    return network, task_dict, commu_pair
 
 def setup_frame_constraints(task_dict: dict, solver_ret_dcit: dict):
     
@@ -289,8 +306,69 @@ def setup_frame_constraints(task_dict: dict, solver_ret_dcit: dict):
     
     return
 
+def gen_example(peroid: int):
+    # network
+    path = './output/graph_exmaple.graphml'
+    network: mmodel.Network = gen_network_from_file(path)
+
+    task_dict = dict()
+    commu_pair = dict()
+    # task
+    _task_list_1 = None
+    _task_list_2 = None
+    for node in network.end_nodes:
+        if node.name == 'node_0':
+            _task_0  = tmodel.FreeTask(network, f'{node.name}_{0}', node.name)
+            _task_0.peroid = peroid
+            _task_0.deadline0 = peroid
+            _task_0.offset0 = 0
+            _task_0.wcet = int(peroid * 0.6)
+            _task_1  = tmodel.ProducerTask(network, f'{node.name}_{1}', node.name)
+            _task_1.peroid = peroid
+            _task_1.deadline0 = peroid
+            _task_1.offset0 = 0
+            _task_1.wcet = int(peroid * 0.02)
+            _task_1.delta = 0
+            _task_2  = tmodel.ConsumerTask(network, f'{node.name}_{2}', node.name)
+            _task_2.peroid = peroid
+            _task_2.deadline0 = peroid - 10000
+            _task_2.offset0 = 0
+            _task_2.wcet = int(peroid * 0.015)
+            _task_2.delta = 1
+            _task_list_1 = [_task_0, _task_1, _task_2]
+            task_dict[node] = _task_list_1
+        elif node.name == 'node_2':
+            _task_0  = tmodel.FreeTask(network, f'{node.name}_{0}', node.name)
+            _task_0.peroid = peroid
+            _task_0.deadline0 = peroid
+            _task_0.offset0 = 0
+            _task_0.wcet = int(peroid * 0.3)
+            _task_1  = tmodel.ShaperTask(network, f'{node.name}_{1}', node.name)
+            _task_1.peroid = peroid
+            _task_1.deadline0 = peroid
+            _task_1.offset0 = 0
+            _task_1.wcet = int(peroid * 0.09)
+            _task_1.delta = 0.5
+            _task_2  = tmodel.FreeTask(network, f'{node.name}_{2}', node.name)
+            _task_2.peroid = peroid
+            _task_2.deadline0 = peroid - 10000
+            _task_2.offset0 = 0
+            _task_2.wcet = int(peroid * 0.3)
+            _task_list_2 = [_task_0, _task_1, _task_2]
+            task_dict[node] = _task_list_2
+        else:
+            raise RuntimeError('unkown end-node in Network')
+    # virtual link
+    # p-s-c
+    _task_list_1[1].set_virtual_link([_task_list_2[1]])
+    _task_list_2[1].set_virtual_link([_task_list_1[2]])
+    commu_pair[_task_list_2[1]] = [_task_list_1[1], _task_list_2[1], _task_list_1[2]]
+
+    return network, task_dict, commu_pair
+    
+
 # 测试生成的图是否合格
-'''
+
 if __name__ == "__main__":
     idx = random.randint(0, 100)
     file_name = './output/graph_small_gen/graph_{}.graphml'.format(idx)
@@ -299,4 +377,4 @@ if __name__ == "__main__":
     print("draw graph_%d" % idx)
     nx.draw_networkx(g)
     plt.show()
-'''
+

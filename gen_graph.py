@@ -10,21 +10,20 @@ from multiprocessing import Pool
 from msg_scheduler import model as mmodel
 from scheduler import model as tmodel
 
-def gen_network_large(network: mmodel.Network, file_idx: int):
-    # 1. generate a random tree and select one with 8 end-node
+def gen_network_huge(network: mmodel.Network, file_idx: int):
+    # 43 switch and 432 endnode
     enode_num = 0
-    while enode_num != 12:
+    while enode_num != 23:
         enode_num = 0
-        g = networkx.generators.random_tree(20)
+        g = networkx.generators.random_tree(66)
         # check the number of end-node
         for n in g.nodes():
             if networkx.degree(g, n) == 1:
                 enode_num += 1
     print("Get one with endnode_num %d, index %d" % (enode_num, file_idx))
     # add endnode to 48 endnodes
-    num_list = [5, 4, 5, 4, 5, 4, 5, 4]
-    times, idx = 0, 20
-    print(len(g.nodes()))
+    num_list = [9 if x%2==1 else 10 for x in range(43)]
+    times, idx = 0, 66
     for node in list(g.nodes()):
         if networkx.degree(g, node) == 1:
             continue
@@ -35,9 +34,55 @@ def gen_network_large(network: mmodel.Network, file_idx: int):
             g.add_edge(idx, node)
             idx += 1
         times += 1
-    print(idx)
-    assert idx == 56, "idx is not equal 56"
-    assert times == 8, "Times is not equal 4"
+    #check
+    enode_num = 0
+    total_num = 0
+    for n in g.nodes():
+        total_num += 1
+        if networkx.degree(g, n)  == 1:
+            enode_num += 1
+    assert enode_num == 432, "Large Check failed in enode_num"
+    assert total_num == 475, "Large Check failed in total_num"
+    # 1.1 write into file
+    networkx.readwrite.graphml.write_graphml(g,
+        "./output/graph_huge_gen/graph_{}.graphml".format(file_idx))
+
+    return
+
+def gen_network_large(network: mmodel.Network, file_idx: int):
+    # 15 switch and 48 endnode
+    # 1. generate a random tree and select one with 8 end-node
+    enode_num = 0
+    while enode_num != 18:
+        enode_num = 0
+        g = networkx.generators.random_tree(33)
+        # check the number of end-node
+        for n in g.nodes():
+            if networkx.degree(g, n) == 1:
+                enode_num += 1
+    print("Get one with endnode_num %d, index %d" % (enode_num, file_idx))
+    # add endnode to 48 endnodes
+    num_list = [2 for x in range(15)]
+    times, idx = 0, 33
+    for node in list(g.nodes()):
+        if networkx.degree(g, node) == 1:
+            continue
+        # it is switchNode, add endnode
+        _num = num_list[times]
+        for i in range(_num):
+            g.add_node(idx)
+            g.add_edge(idx, node)
+            idx += 1
+        times += 1
+    #check
+    enode_num = 0
+    total_num = 0
+    for n in g.nodes():
+        total_num += 1
+        if networkx.degree(g, n)  == 1:
+            enode_num += 1
+    assert enode_num == 48, "Large Check failed in enode_num"
+    assert total_num == 63, "Large Check failed in total_num"
     # 1.1 write into file
     networkx.readwrite.graphml.write_graphml(g,
         "./output/graph_large_gen/graph_{}.graphml".format(file_idx))
@@ -45,19 +90,20 @@ def gen_network_large(network: mmodel.Network, file_idx: int):
     return
 
 def gen_network_medium(network: mmodel.Network, file_idx: int):
+    # 13 switch and 36 end
     # 1. generate a random tree and select one with 8 end-node
     enode_num = 0
-    while enode_num != 6:
+    while enode_num != 10:
         enode_num = 0
-        g = networkx.generators.random_tree(10)
+        g = networkx.generators.random_tree(23)
         # check the number of end-node
         for n in g.nodes():
             if networkx.degree(g, n) == 1:
                 enode_num += 1
     print("Get one with endnode_num %d, index %d" % (enode_num, file_idx))
     # add endnode to 16 endnodes
-    num_list = [3, 2, 2, 3]
-    times, idx = 0, 10
+    num_list = [2 for x in range(13)]
+    times, idx = 0, 23
     for node in list(g.nodes()):
         if networkx.degree(g, node) == 1:
             continue
@@ -68,8 +114,15 @@ def gen_network_medium(network: mmodel.Network, file_idx: int):
             g.add_edge(idx, node)
             idx += 1
         times += 1
-    assert times == 4, "Times is not equal 4"
-    assert idx == 20, "idx is not equal 20"
+    #check
+    enode_num = 0
+    total_num = 0
+    for n in g.nodes():
+        total_num += 1
+        if networkx.degree(g, n)  == 1:
+            enode_num += 1
+    assert enode_num == 36, "Medium Check failed in enode_num"
+    assert total_num == 49, "Medium Check failed in total_num"
     # 1.1 write into file
     networkx.readwrite.graphml.write_graphml(g,
         "./output/graph_medium_gen/graph_{}.graphml".format(file_idx))
@@ -79,15 +132,15 @@ def gen_network_medium(network: mmodel.Network, file_idx: int):
 def gen_network_small(network: mmodel.Network, idx: int):
     # 1. generate a random tree and select one with 4 endnode
     enode_num = 0
-    while enode_num != 4:
+    while enode_num != 6:
         enode_num = 0
-        g = networkx.generators.random_tree(6)
+        g = networkx.generators.random_tree(10)
         # check the number of end-node
         for n in g.nodes():
             nei = list(g.neighbors(n))
             if len(nei) == 1:
                 enode_num += 1
-    print("Get one with endnode_num %d, index %d" % enode_num, idx)
+    print("Get one with endnode_num %d, index %d" % (enode_num, idx))
     # 1.1 write into file
     networkx.readwrite.graphml.write_graphml(g,
         "./output/graph_small_gen/graph_{}.graphml".format(idx))
@@ -103,6 +156,8 @@ def gen_network(net_type: int, idx: int):
         gen_network_medium(network, idx)
     elif net_type == 2:
         gen_network_large(network, idx)
+    elif net_type == 3:
+        gen_network_huge(network, idx)
     else:
         print("[Benchmark Gen][ERR]: Unkown network type")
         return None
@@ -121,16 +176,5 @@ def gen_network_into_file(net_type: int, start_idx, end_idx):
 # 生成文本格式的图存储到文件中
 
 if __name__ == "__main__":
-    '''
-    print('Parent process %s.' % os.getpid())
-    p = Pool(4)
-    size = 300 // 4
-    start_idx = 0
-    for i in range(4):
-        p.apply_async(gen_network_into_file, args=(1, start_idx+size*i, start_idx+size*(i+1)))
-    print('Waiting for all subprocesses done...')
-    p.close()
-    p.join()
-    print('All subprocesses done.')
-    '''
+
     gen_network_into_file(2, 0, 100)
