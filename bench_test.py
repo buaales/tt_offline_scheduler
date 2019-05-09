@@ -59,6 +59,7 @@ def do_test(peroids, util, gran, net_type, times):
         return -1, -1, -1
     
     # 测试密度
+    print("-- 密度测试 --")
     for node in task_dict:
         tasks = task_dict[node]
         s = 0
@@ -68,7 +69,7 @@ def do_test(peroids, util, gran, net_type, times):
             else:
                 s += task.wcet / solver_result_dict["{}_deadline".format(task.name)]
         print("{}: s={}".format(node.name, s))
-    
+    print("-- 任务调度 --")
     _temp_sum = 0
     _count = 0
     for node in task_dict:
@@ -104,7 +105,7 @@ def do_test(peroids, util, gran, net_type, times):
         _temp_sum += _t1 - _t0
         
     task_sche_time = _temp_sum / _count
-    
+    print("-- 通信调度 --")
     gb.setup_frame_constraints(task_dict, solver_result_dict)
     
     sc = mmodel.Scheduler(network)
@@ -113,8 +114,10 @@ def do_test(peroids, util, gran, net_type, times):
 
     
     hook = constrains.Z3Hook()
-    sc.add_constrains(hook)
     _t0 = time.time()
+    print("- 生成约束 -")
+    sc.add_constrains(hook)
+    print("- 求解 -")
     df = hook.to_dataframe()
     _t1 = time.time()
     msg_sche_time = _t1 - _t0
@@ -132,17 +135,17 @@ if __name__ == '__main__':
 
     # setup param
     peroids = [50000, 75000] #us
-    util = 0.71
+    util = 0.5
     gran = 1 # us
-    net_type = 1
+    net_type = 0
 
-    
-    for times in range(0,100):
-        print("\x1b[32m####Starting {} time test\x1b[0m".format(times))
-        t1, t2, t3 = do_test(peroids, util, gran, net_type, times)
-        with open("./output/caltime.txt", "a") as f:
-            f.writelines('{},\t\t\t{},\t\t\t{}\n'.format(t1, t2, t3))
-            f.close()
+    for net_type in range(2, 3):
+        for times in range(0,100):
+            print("\x1b[32m####Starting {} time test\x1b[0m".format(times))
+            t1, t2, t3 = do_test(peroids, util, gran, net_type, times)
+            with open("./output/normal/calu_time_size_{}.txt".format(net_type), "a") as f:
+                f.writelines('%.2f\t%.2f\t%.2f\n'%(t1, t2, t3))
+                f.close()
     
     print("#### Test Done! ####")
 

@@ -11,26 +11,26 @@ from scheduler import solver_gekko as tsolver
 from scheduler import edfsim
 
 
-def do_test():
+def do_test(split_output_path: str, s_delta=0.5):
     #return times
     split_time = 0
     task_sche_time = 0
     msg_sche_time = 0
     # call gen_model
-    network, task_dict, commu_pair = gb.gen_example(50000)
+    network, task_dict, commu_pair = gb.gen_example(50000, s_delta)
     # draw the network
     # network.draw()
 
     # test solver
     solver = tsolver.Solver(network, task_dict, 0.6, commu_pair)
-    solver_result_dict, split_time = solver.solve("./output/gurobi_result_1.txt")
+    solver_result_dict, split_time = solver.solve(split_output_path)
 
     if not solver_result_dict:
         print("\x1b[31m#### Can't solve spliting\x1b[0m")
         time.sleep(3)
         return -1, -1, -1
     
-    # 测试密度
+    print("-- 密度测试 --")
     for node in task_dict:
         tasks = task_dict[node]
         s = 0
@@ -41,6 +41,7 @@ def do_test():
                 s += task.wcet / solver_result_dict["{}_deadline".format(task.name)]
         print("{}: s={}".format(node.name, s))
     
+    print("-- 任务调度 --")
     _temp_sum = 0
     _count = 0
     for node in task_dict:
@@ -76,7 +77,7 @@ def do_test():
         _temp_sum += _t1 - _t0
         
     task_sche_time = _temp_sum / _count
-    
+    print("-- 通信调度 --")
     gb.setup_frame_constraints(task_dict, solver_result_dict)
     
     sc = mmodel.Scheduler(network)
@@ -85,8 +86,8 @@ def do_test():
 
     
     hook = constrains.Z3Hook()
-    sc.add_constrains(hook)
     _t0 = time.time()
+    sc.add_constrains(hook)
     df = hook.to_dataframe()
     _t1 = time.time()
     msg_sche_time = _t1 - _t0
@@ -101,7 +102,9 @@ def do_test():
 if __name__ == '__main__':
     
     print("\x1b[32m####Starting test\x1b[0m")
-    t1, t2, t3 = do_test()
+    
+    for delta in [0.1 * x for x in range(4, 5)]:
+        t1, t2, t3 = do_test("./output/multi_delta/split_result_delta_{}".format(int(delta*10)), delta)
     
     print("#### Test Done! ####")
 

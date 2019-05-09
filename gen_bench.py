@@ -161,7 +161,8 @@ def gen_comm_delta_for_each_node(tasks):
             _task.delta = 1
         # shaper task
         else:
-            _task.delta = random.uniform(0.4, 0.6)
+            #_task.delta = random.uniform(0.4, 0.6)
+            _task.delta = 0.5
 
 def gen_phi0_and_d0(task_dict, network, delay_max, delay_min):
 
@@ -300,13 +301,13 @@ def setup_frame_constraints(task_dict: dict, solver_ret_dcit: dict):
             _offset =  solver_ret_dcit['{}_phi'.format(task.name)] + solver_ret_dcit['{}_deadline'.format(task.name)]
             # msg end before receiver's offset
             _deadline = solver_ret_dcit['{}_phi'.format(_receiver.name)]
-            print('{}, {}'.format(task.name, _receiver.name))
-            print('{}, {}, {}, {}'.format(task.peroid, _offset, _deadline, _receiver.offset0))
+            #print('{}, {}'.format(task.name, _receiver.name))
+            #print('{}, {}, {}, {}'.format(task.peroid, _offset, _deadline, _receiver.offset0))
             task.set_frame(peroid=task.peroid, min_offset=_offset, max_offset=_deadline)
     
     return
 
-def gen_example(peroid: int):
+def gen_example(peroid: int, s_delta: float):
     # network
     path = './output/graph_exmaple.graphml'
     network: mmodel.Network = gen_network_from_file(path)
@@ -331,7 +332,7 @@ def gen_example(peroid: int):
             _task_1.delta = 0
             _task_2  = tmodel.ConsumerTask(network, f'{node.name}_{2}', node.name)
             _task_2.peroid = peroid
-            _task_2.deadline0 = peroid - 10000
+            _task_2.deadline0 = peroid
             _task_2.offset0 = 0
             _task_2.wcet = int(peroid * 0.015)
             _task_2.delta = 1
@@ -348,10 +349,10 @@ def gen_example(peroid: int):
             _task_1.deadline0 = peroid
             _task_1.offset0 = 0
             _task_1.wcet = int(peroid * 0.09)
-            _task_1.delta = 0.5
+            _task_1.delta = s_delta
             _task_2  = tmodel.FreeTask(network, f'{node.name}_{2}', node.name)
             _task_2.peroid = peroid
-            _task_2.deadline0 = peroid - 10000
+            _task_2.deadline0 = peroid
             _task_2.offset0 = 0
             _task_2.wcet = int(peroid * 0.3)
             _task_list_2 = [_task_0, _task_1, _task_2]

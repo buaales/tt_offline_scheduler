@@ -235,7 +235,7 @@ class Network:
                 node_targets = [node_targets]
 
             for n in node_targets:
-                print('add {} {}'.format(node_name1, n))
+                #print('add {} {}'.format(node_name1, n))
                 self.add_link(node_name1, n)
             return helper
 
@@ -422,7 +422,7 @@ class ModelHook:
 
     def on_send_from_sender(self, app: Application, node: EndNode, frame: Frame, frame_seq_in_peroid: int,
                             start_link: Link):
-        print(f'{app}: send from {node}')
+        #print(f'{app}: send from {node}')
         pass
 
     def on_add_to_link(self, app: Application, link: Link, frame: Frame, frame_seq_in_peroid: int):
@@ -432,7 +432,7 @@ class ModelHook:
             link {Link} -- 数据帧经过的链路
             frame {Frame} -- 新加入的数据帧
         """
-        print(f'{app}: send frame_{frame.id} on {link}')
+        #print(f'{app}: send frame_{frame.id} on {link}')
         self._frames_on_link[link].add((frame, frame_seq_in_peroid))
 
     def on_switch(self, app: Application, switch: SwitchNode, frame: Frame, frame_seq_in_peroid: int, before_link: Link,
@@ -445,7 +445,7 @@ class ModelHook:
             before_link {Link} -- [description]
             after_link {[type]} -- [description]
         """
-        print(f'{app}: frame_{frame.id} get switch {switch}')
+        #print(f'{app}: frame_{frame.id} get switch {switch}')
 
     def on_received(self, app: Application, receiver: EndNode, frame: Frame, frame_seq_in_peroid: int, first_link: Link,
                     last_link: Link):
@@ -457,7 +457,7 @@ class ModelHook:
             first_link {Link} -- 发送者的链路
             last_link {Link} -- 接收者的链路
         """
-        print(f'{app}: frame_{frame.id} arrive in {receiver}')
+        #print(f'{app}: frame_{frame.id} arrive in {receiver}')
         self._app_last_link[app] = last_link
 
     def solve(self):
