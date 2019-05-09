@@ -58,7 +58,7 @@ class Solver:
                 _delta = task.delta
                 # constraints for d
                 _d = self._var_name_map['{}_deadline'.format(task.name)]
-                s.add(_d >= 0)
+                s.add(_d >= _wcet0)
                 s.add(_d <= _d0)
                 # constraints for phi
                 _phi = self._var_name_map['{}_phi'.format(task.name)]
