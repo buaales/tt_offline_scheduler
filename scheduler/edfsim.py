@@ -304,10 +304,10 @@ def testEDFSim(freeTaskList: list, smtTaskList: list):
 
     sim.run()
     logs = sim.getExeTaskTraceList()
-    #print("-----------------------------------------------")
-    #for _trace in logs:
-    #    print("task %2d sid %2d runs at time %3d for %3d MA" % (_trace[0],_trace[1],_trace[2],_trace[3]) )
-    #print("total trace number is %d" % len(logs))
+    print("-----------------------------------------------")
+    for _trace in logs:
+        print("task %2d sid %2d runs at time %3d for %3d MA" % (_trace[0],_trace[1],_trace[2],_trace[3]) )
+    print("total trace number is %d" % len(logs))
 
     # draw the task trace
     x_time = []
@@ -323,20 +323,20 @@ def testEDFSim(freeTaskList: list, smtTaskList: list):
     x_time.append(logs[-1][2]+logs[-1][3])
     y_task.append(logs[-1][0])
 
-    #plt.figure()
-    #plt.xlabel('global time')
-    #plt.ylabel('task id')
-    #plt.plot(x_time,y_task)
+    plt.figure()
+    plt.xlabel('global time')
+    plt.ylabel('task id')
+    plt.plot(x_time,y_task)
 
     # draw the reference line
     hyp = logs[-1][2]+logs[-1][3]
     # idle task is identified with 0
     taskIDList = [x.tid for x in freeTaskList+smtTaskList ]
     taskIDList.append(0)
-    #for task_id in taskIDList:
-    #    plt.plot([0,hyp],[task_id,task_id],'--',linewidth=0.5)
+    for task_id in taskIDList:
+        plt.plot([0,hyp],[task_id,task_id],'--',linewidth=0.5)
 
-    #plt.show()
+    plt.show()
 
 if __name__=="__main__":
     testEDFSim()

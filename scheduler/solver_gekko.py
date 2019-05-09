@@ -1,5 +1,6 @@
 ''' The Solver Model '''
 import time
+import re
 
 from msg_scheduler import model as MModel
 from scheduler import model as TModel
@@ -94,11 +95,11 @@ class Solver:
                 _k = 1
                 # constraints for d_plus and d_sub
                 _expr_temp = (_phi - _p_phi - _p_deadline - _d_p_s) * (1 - _my_delta) - (_c_phi - _phi - _d - _d_s_c) * _my_delta + _d_sub - _d_plus
-                print(_expr_temp)
+                #print(_expr_temp)
                 s.Equation(_expr_temp == 0)
                 # min
                 _expr_temp = (_c_phi - _phi - _d - _d_s_c) + (_phi - _p_phi - _p_deadline - _d_p_s) - _k * (_d_plus + _d_sub)
-                print(_expr_temp)
+                #print(_expr_temp)
                 s.Equation(_min <= _expr_temp)
                 #self.f.writelines("min <= {}\n".format(_expr_temp_str))
             # Add util constraints
@@ -113,7 +114,7 @@ class Solver:
                 _count += 1
                 
             s.Equation(_expr_temp <= (1-self._free_util))
-            print(_expr_temp)
+            #print(_expr_temp)
             
         # set objective: max_min
         _min = self._vars['min']
@@ -144,9 +145,15 @@ class Solver:
         # output
         with open(file_path, 'w') as f:
             for name in self._vars:
-                var = self._vars[name]
-                f.writelines('{}, {}\n'.format(name, var.value[0]))
-                retdict[name] = int(var.value[0])
+                value = self._vars[name].value[0]
+                pattern = r'.*_phi$'
+                if re.search(pattern, name):
+                    value = int(value)
+                pattern = r'.*_deadline$'
+                if re.search(pattern, name):
+                    value = int(value) + 1
+                f.writelines('{}, {}\n'.format(name, value))
+                retdict[name] = value
 
             f.close()
 
