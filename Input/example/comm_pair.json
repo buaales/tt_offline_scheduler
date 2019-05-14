@@ -1,0 +1,7 @@
+[
+    {
+        "ProducerTask": "0_1",
+        "ShaperTask" : "2_1",
+        "ConsumerTask": "0_2"
+    }
+]
