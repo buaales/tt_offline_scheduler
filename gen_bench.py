@@ -247,16 +247,16 @@ def gen_test_model(peroids: list, utilization: float, granuolarity: int, net_typ
     # 1. 从生成好的图像文件中获取网络
     if net_type == 0:
         # small network
-        path = './output/graph_small_gen/graph_{}.graphml'.format(times)
+        path = './input/graph_small_gen/graph_{}.graphml'.format(times)
     elif net_type == 1:
         # medium network
-        path = './output/graph_medium_gen/graph_{}.graphml'.format(times)
+        path = './input/graph_medium_gen/graph_{}.graphml'.format(times)
     elif net_type == 2:
         # large network
-        path = './output/graph_large_gen/graph_{}.graphml'.format(times)
+        path = './input/graph_large_gen/graph_{}.graphml'.format(times)
     elif net_type == 3:
         # huge
-        path = './output/graph_huge_gen/graph_{}.graphml'.format(times)
+        path = './input/graph_huge_gen/graph_{}.graphml'.format(times)
     else:
         print("[Benchmark Gen][ERR]: Unkown network type")
         return
@@ -309,7 +309,7 @@ def setup_frame_constraints(task_dict: dict, solver_ret_dcit: dict):
 
 def gen_example(peroid: int, s_delta: float):
     # network
-    path = './output/graph_exmaple.graphml'
+    path = './input/graph_exmaple.graphml'
     network: mmodel.Network = gen_network_from_file(path)
 
     task_dict = dict()
@@ -372,7 +372,7 @@ def gen_example(peroid: int, s_delta: float):
 
 if __name__ == "__main__":
     idx = random.randint(0, 100)
-    file_name = './output/graph_small_gen/graph_{}.graphml'.format(idx)
+    file_name = './input/graph_small_gen/graph_{}.graphml'.format(idx)
     g = nx.readwrite.graphml.read_graphml(file_name)
     #g = networkx.complete_graph(5)
     print("draw graph_%d" % idx)

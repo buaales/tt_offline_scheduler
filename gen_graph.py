@@ -45,7 +45,7 @@ def gen_network_huge(network: mmodel.Network, file_idx: int):
     assert total_num == 475, "Large Check failed in total_num"
     # 1.1 write into file
     networkx.readwrite.graphml.write_graphml(g,
-        "./output/graph_huge_gen/graph_{}.graphml".format(file_idx))
+        "./input/graph_huge_gen/graph_{}.graphml".format(file_idx))
 
     return
 
@@ -85,7 +85,7 @@ def gen_network_large(network: mmodel.Network, file_idx: int):
     assert total_num == 63, "Large Check failed in total_num"
     # 1.1 write into file
     networkx.readwrite.graphml.write_graphml(g,
-        "./output/graph_large_gen/graph_{}.graphml".format(file_idx))
+        "./input/graph_large_gen/graph_{}.graphml".format(file_idx))
 
     return
 
@@ -125,7 +125,7 @@ def gen_network_medium(network: mmodel.Network, file_idx: int):
     assert total_num == 49, "Medium Check failed in total_num"
     # 1.1 write into file
     networkx.readwrite.graphml.write_graphml(g,
-        "./output/graph_medium_gen/graph_{}.graphml".format(file_idx))
+        "./input/graph_medium_gen/graph_{}.graphml".format(file_idx))
 
     return
 
@@ -143,7 +143,7 @@ def gen_network_small(network: mmodel.Network, idx: int):
     print("Get one with endnode_num %d, index %d" % (enode_num, idx))
     # 1.1 write into file
     networkx.readwrite.graphml.write_graphml(g,
-        "./output/graph_small_gen/graph_{}.graphml".format(idx))
+        "./input/graph_small_gen/graph_{}.graphml".format(idx))
 
     return
 
