@@ -115,7 +115,7 @@ class EndNode(Node):
 class SwitchNode(Node):
     """网络中的交换机"""
 
-    def __init__(self, name: str, delay: int = 1, membound: int = 999999):
+    def __init__(self, name: str, delay: int = 300, membound: int = 999999):
         super().__init__(name)
         self._delay = delay  # no internal delay
         self._membound = membound  # unlimited membound

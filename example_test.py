@@ -21,8 +21,12 @@ def do_test(split_output_path: str, s_delta=0.5):
     # draw the network
     # network.draw()
 
+    free_utils = dict()
+    for node in task_dict:
+        free_utils[node] = 0.6
+
     # test solver
-    solver = tsolver.Solver(network, task_dict, 0.6, commu_pair)
+    solver = tsolver.Solver(network, task_dict, free_utils, commu_pair)
     solver_result_dict, split_time = solver.solve(split_output_path)
 
     if not solver_result_dict:
@@ -84,7 +88,6 @@ def do_test(split_output_path: str, s_delta=0.5):
     for node in task_dict:
         sc.add_apps(task_dict[node])
 
-    
     hook = constrains.Z3Hook()
     _t0 = time.time()
     sc.add_constrains(hook)

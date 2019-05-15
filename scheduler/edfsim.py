@@ -256,59 +256,7 @@ class EDFSim(object):
         # extract and generate the task trace from the runtime log '_exeTraceList'
         self.__extractTaskTrace(_exeTraceList)
 
-
-def testEDFSim(freeTaskList: list, smtTaskList: list):
-    '''
-    freeTaskList = [
-        Task(tid=1,T=100,C=20,D=100,offset=0),
-        Task(tid=2,T=100,C=10,D=90,offset=0),
-        Task(tid=3,T=100,C=12,D=100,offset=0),
-        Task(tid=4,T=250,C=60,D=200,offset=0),
-    ]
-    smtTaskList  = [
-        Task(tid=5,T=300,C=10,D=260,offset=250),
-        Task(tid=6,T=250,C=40,D=50,offset=10),
-        Task(tid=7,T=300,C=7,D=107,offset=100),
-    ]
-    '''
-    '''
-    freeTaskList = [
-        Task(tid=1,T=100,C=40,D=100,offset=0),
-    ]
-    smtTaskList  = [
-        #Task(tid=5,T=200,C=20,D=20,offset=10),
-        Task(tid=6,T=100,C=40,D=70,offset=30),
-        Task(tid=7,T=100,C=10,D=10,offset=80),
-    ]
-    '''
-
-    '''
-    freeTaskList = [
-        Task(tid=1,T=100,C=90,D=100,offset=0),
-    ]
-    smtTaskList  = [
-        Task(tid=5,T=100,C=10,D=20,offset=10),
-    ]
-    '''
-    
-    result = demandCheck(freeTaskList,smtTaskList)
-
-    if(len(result)!=0):
-        print("-----------------------------------------------")
-        print("demand overload !")
-        for x in result:
-            print("task %d overload" % x.tid)
-        return
-
-    sim = EDFSim(freeTaskList,smtTaskList)
-
-    sim.run()
-    logs = sim.getExeTaskTraceList()
-    print("-----------------------------------------------")
-    for _trace in logs:
-        print("task %2d sid %2d runs at time %3d for %3d MA" % (_trace[0],_trace[1],_trace[2],_trace[3]) )
-    print("total trace number is %d" % len(logs))
-
+def logs_draw(logs, freeTaskList, smtTaskList):
     # draw the task trace
     x_time = []
     y_task = []
@@ -337,6 +285,32 @@ def testEDFSim(freeTaskList: list, smtTaskList: list):
         plt.plot([0,hyp],[task_id,task_id],'--',linewidth=0.5)
 
     plt.show()
+
+def testEDFSim(freeTaskList: list, smtTaskList: list, ifdraw=False):
+    
+    result = demandCheck(freeTaskList,smtTaskList)
+
+    if(len(result)!=0):
+        print("-----------------------------------------------")
+        print("demand overload !")
+        for x in result:
+            print("task %d overload" % x.tid)
+        return
+
+    sim = EDFSim(freeTaskList,smtTaskList)
+
+    sim.run()
+    logs = sim.getExeTaskTraceList()
+    print("-----------------------------------------------")
+    for _trace in logs:
+        print("task %2d sid %2d runs at time %3d for %3d MA" % (_trace[0],_trace[1],_trace[2],_trace[3]) )
+    print("total trace number is %d" % len(logs))
+
+    if ifdraw:
+        logs_draw(logs, freeTaskList, smtTaskList)
+    
+    return logs
+
 
 if __name__=="__main__":
     testEDFSim()

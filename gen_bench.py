@@ -341,7 +341,7 @@ def gen_example(peroid: int, s_delta: float):
         elif node.name == 'node_2':
             _task_0  = tmodel.FreeTask(network, f'{node.name}_{0}', node.name)
             _task_0.peroid = peroid
-            _task_0.deadline0 = peroid
+            _task_0.deadline0 = peroid -1000
             _task_0.offset0 = 0
             _task_0.wcet = int(peroid * 0.3)
             _task_1  = tmodel.ShaperTask(network, f'{node.name}_{1}', node.name)

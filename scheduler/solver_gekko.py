@@ -8,10 +8,10 @@ from gekko import GEKKO
 
 class Solver:
     ''' The Solver Class '''
-    def __init__(self, network: MModel.Network, task_dict: dict, free_util: float, commu_dict: dict):
+    def __init__(self, network: MModel.Network, task_dict: dict, free_utils: dict, commu_dict: dict):
         self._network = network
         self._task_dict = task_dict
-        self._free_util = free_util
+        self._free_util = free_utils
         self._commu_pair = commu_dict
         self._solver = GEKKO(remote=False)
         self._vars = {}
@@ -47,6 +47,7 @@ class Solver:
         s = self._solver
         for node in self._task_dict:
             tasks = self._task_dict[node]
+            free_util = self._free_util[node]
             for task in tasks:
                 # skip free-task and consumer-task
                 if isinstance(task, TModel.FreeTask):
@@ -113,7 +114,7 @@ class Solver:
                 _expr_temp += task.wcet / _d
                 _count += 1
                 
-            s.Equation(_expr_temp <= (1-self._free_util))
+            s.Equation(_expr_temp <= (1-free_util))
             #print(_expr_temp)
             
         # set objective: max_min

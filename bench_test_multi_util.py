@@ -49,8 +49,12 @@ def do_test(peroids, util, gran, net_type, times):
         record_test_model(f, task_dict)
         f.close()
 
+    free_utils = dict()
+    for node in task_dict:
+        free_utils[node] = util*0.75
+
     # test solver
-    solver = tsolver.Solver(network, task_dict, util*0.75, commu_pair)
+    solver = tsolver.Solver(network, task_dict, free_utils, commu_pair)
     solver_result_dict, split_time = solver.solve("./output/gurobi_result.txt")
 
     if not solver_result_dict:
