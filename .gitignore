@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 output/
 output/bench_test.txt
+.vscode
