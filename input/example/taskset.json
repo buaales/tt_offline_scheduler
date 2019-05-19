@@ -5,7 +5,7 @@
             "task_id" : 1,
             "task_type": "FreeTask",
             "offset": 0,
-            "wcet": 30000,
+            "wcet": 40000,
             "deadline": 100000,
             "peroid": 100000
         },
@@ -13,7 +13,7 @@
             "task_id" : 2,
             "task_type": "ProducerTask",
             "offset": 0,
-            "wcet": 5000,
+            "wcet": 10000,
             "deadline": 100000,
             "peroid": 100000,
             "delta": 0
@@ -22,7 +22,7 @@
             "task_id" : 3,
             "task_type": "ConsumerTask",
             "offset": 0,
-            "wcet": 4500,
+            "wcet": 10000,
             "deadline": 100000,
             "peroid": 100000,
             "delta": 1
@@ -34,15 +34,15 @@
             "task_id" : 1,
             "task_type": "FreeTask",
             "offset": 0,
-            "wcet": 15000,
-            "deadline": 100000,
+            "wcet": 20000,
+            "deadline": 90000,
             "peroid": 100000
         },
         {
             "task_id" : 2,
             "task_type": "ShaperTask",
             "offset": 0,
-            "wcet": 4500,
+            "wcet": 17000,
             "deadline": 100000,
             "peroid": 100000,
             "delta": 0.4
@@ -51,7 +51,7 @@
             "task_id" : 3,
             "task_type": "FreeTask",
             "offset": 0,
-            "wcet": 15000,
+            "wcet": 20000,
             "deadline": 100000,
             "peroid": 100000
         }

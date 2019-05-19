@@ -16,15 +16,15 @@ from scheduler import edfsim
 ##
 # Input Files
 ##
-graph_path: str = "./input/example/graph.graphml"
-commu_pair_path: str = "./input/example/comm_pair.json"
-taskset_path: str = "./input/example/taskset.json"
+graph_path: str = "./input/example.1/graph.graphml"
+commu_pair_path: str = "./input/example.1/comm_pair.json"
+taskset_path: str = "./input/example.1/taskset.json"
 ##
 # Output Files
 ##
 split_output_path: str = "./output/split_result.txt"
-task_sch_result_path_prefix: str = "./output/task_sch_result"
-msg_sch_result_path: str = "./output/msg_sch_result.bin"
+task_sch_result_path_prefix: str = "./output/"
+msg_sch_result_path: str = "./output/msg.bin"
 
 def calculate_free_utils(task_dict: dict):
     utils = dict()
@@ -36,8 +36,9 @@ def calculate_free_utils(task_dict: dict):
             if not isinstance(_task, tmodel.FreeTask):
                 continue
             # add to _util
-            _util += _task.wcet / _task.peroid
+            _util += _task.wcet / _task.deadline0
         # store into utils
+        #print(_util)
         utils[node] = _util
     
     # return
@@ -50,6 +51,21 @@ def gen_msg_sch_table(df: pd.DataFrame):
 
         string = str(df.sort_values('time_slot'))
         str_list = string.split(sep='\n')
+        '''
+        # calc entry number
+        count = 0
+        for s in str_list:
+            _list = s.split()
+            if not len(_list) == 7:
+                continue
+            # only match receiver
+            _reveiver = _list[5]
+            if not re.match(r'node_\d+$', _reveiver):
+                continue
+            count += 1
+        # write
+        f.write(struct.pack('Q', count))
+        '''
         for s in str_list:
             _list = s.split()
             if not len(_list) == 7:
@@ -66,6 +82,7 @@ def gen_msg_sch_table(df: pd.DataFrame):
             _entry_value = (_msg_id << 48) | (int(_list[6]) & 0xFFFFFFFFFFFF)
             _entry = struct.pack('Q', _entry_value)
             f.write(_entry)
+        # setup size in first 64 bit
         f.close()
     except IOError as e:
         print("can't open file {}".format(msg_sch_result_path))
@@ -102,13 +119,21 @@ def single_task_schedule(tasks: list, solver_result_dict: dict, path: str):
     # gen task schudle table (binary)
     try:
         f = open(path, 'wb')
+        f.write(struct.pack('Q', len(logs)+1))
         for log in logs:
             _task_id = log[0]
-            _end_time = log[2] + log[3]
-            print("add entry: task_id: {}, end at {}".format(_task_id, _end_time))
-            _entry_value = ((_task_id & 0xFFFF) << 48) | (_end_time & 0xFFFFFFFFFFFF)
+            if _task_id == 0:
+                # Change for barrelfish BE task
+                _task_id = -1
+            _start_time = log[2]
+            print("add entry: task_id: {}, start at {}".format(_task_id, _start_time))
+            _entry_value = ((_task_id & 0xFFFF) << 48) | (_start_time & 0xFFFFFFFFFFFF)
             _entry = struct.pack('Q', _entry_value)
             f.write(_entry)
+        # add last entry
+        _entry_value = ((-1 & 0xFFFF) << 48) | ((logs[-1][2]+logs[-1][3]) &0xFFFFFFFFFFFF)
+        _entry = struct.pack('Q', _entry_value)
+        f.write(_entry)
         f.close()
     except IOError as e:
         print("Can't open file {}".format(paht))
@@ -145,8 +170,10 @@ if __name__ == '__main__':
         for task in tasks:
             if isinstance(task, tmodel.FreeTask):
                 s += task.wcet / task.deadline0
+                #print(s)
             else:
                 s += task.wcet / solver_result_dict["{}_deadline".format(task.name)]
+                #print(s)
         print("{}: s={}".format(node.name, s))
     
     print("\n-- 任务调度 --")
@@ -155,7 +182,7 @@ if __name__ == '__main__':
     for node in task_dict:
         _tasks = task_dict[node]
         #print(node.name)
-        _path = "{}_{}.bin".format(task_sch_result_path_prefix, node.name)
+        _path = "{}{}.bin".format(task_sch_result_path_prefix, node.name)
         _cost_time = single_task_schedule(_tasks, solver_result_dict, _path)
         count += 1
         temp_sum += _cost_time

@@ -1,0 +1,59 @@
+{
+    "node_1" : 
+    [
+        {
+            "task_id": 1,
+            "task_type": "ProducerTask",
+            "offset": 0,
+            "wcet": 100000,
+            "deadline": 1000000,
+            "peroid": 1000000,
+            "delta": 0
+        },
+        {
+            "task_id": 2,
+            "task_type": "FreeTask",
+            "offset": 0,
+            "wcet": 400000,
+            "deadline": 1000000,
+            "peroid": 1000000
+        },
+        {
+            "task_id" : 3,
+            "task_type": "ConsumerTask",
+            "offset": 0,
+            "wcet": 100000,
+            "deadline": 1000000,
+            "peroid": 1000000,
+            "delta": 1
+        }
+    ],
+    "node_2" : 
+    [
+        {
+            "task_id": 1,
+            "task_type": "FreeTask",
+            "offset": 0,
+            "wcet": 250000,
+            "deadline": 1000000,
+            "peroid": 1000000
+        },
+        {
+            "task_id" : 2,
+            "task_type": "ShaperTask",
+            "offset": 0,
+            "wcet": 150000,
+            "deadline": 1000000,
+            "peroid": 1000000,
+            "delta": 0.5
+        },
+        {
+            "task_id": 3,
+            "task_type": "FreeTask",
+            "offset": 0,
+            "wcet": 250000,
+            "deadline": 900000,
+            "peroid": 1000000
+        }
+    ]
+}

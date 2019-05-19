@@ -3,6 +3,7 @@ import collections
 import math
 
 from matplotlib import pylab as plt
+from matplotlib import ticker
 
 # not used
 # ExeTraceStruct = collections.namedtuple('ExeTraceStruct',['tid','sid','timestamp'])
@@ -256,7 +257,7 @@ class EDFSim(object):
         # extract and generate the task trace from the runtime log '_exeTraceList'
         self.__extractTaskTrace(_exeTraceList)
 
-def logs_draw(logs, freeTaskList, smtTaskList):
+def logs_draw(logs, freeTaskList, smtTaskList, task_num):
     # draw the task trace
     x_time = []
     y_task = []
@@ -264,7 +265,7 @@ def logs_draw(logs, freeTaskList, smtTaskList):
     last = 0
     for _trace in logs:
         x_time.append(_trace[2])
-        y_task .append(last)
+        y_task.append(last)
         x_time.append(_trace[2])
         y_task.append(_trace[0])
         last = _trace[0]
@@ -272,17 +273,19 @@ def logs_draw(logs, freeTaskList, smtTaskList):
     y_task.append(logs[-1][0])
 
     plt.figure()
-    plt.xlabel('global time')
-    plt.ylabel('task id')
+    plt.xlabel('Time')
+    plt.ylabel('Task ID')
     plt.plot(x_time,y_task)
-
+    plt.yticks(range(task_num+1))
+    #plt.gca().yaxis.set_major_formatter(ticker.FormatStrFormatter('%d'))
+ 
     # draw the reference line
     hyp = logs[-1][2]+logs[-1][3]
     # idle task is identified with 0
     taskIDList = [x.tid for x in freeTaskList+smtTaskList ]
     taskIDList.append(0)
     for task_id in taskIDList:
-        plt.plot([0,hyp],[task_id,task_id],'--',linewidth=0.5)
+        plt.plot([0,hyp],[task_id,task_id],'--',linewidth=1)
 
     plt.show()
 
@@ -303,11 +306,12 @@ def testEDFSim(freeTaskList: list, smtTaskList: list, ifdraw=False):
     logs = sim.getExeTaskTraceList()
     print("-----------------------------------------------")
     for _trace in logs:
-        print("task %2d sid %2d runs at time %3d for %3d MA" % (_trace[0],_trace[1],_trace[2],_trace[3]) )
+        #print("task %2d sid %2d runs at time %3d for %3d MA" % (_trace[0],_trace[1],_trace[2],_trace[3]) )
+        print("task %2d runs at time %3d for %3d MA" % (_trace[0],_trace[2],_trace[3]) )
     print("total trace number is %d" % len(logs))
 
     if ifdraw:
-        logs_draw(logs, freeTaskList, smtTaskList)
+        logs_draw(logs, freeTaskList, smtTaskList, len(freeTaskList)+len(smtTaskList))
     
     return logs
 

@@ -52,6 +52,14 @@ def gen_network_from_file(path: str):
 
     return network
 
+def search_task(task_dict, node_id, task_id):
+    tasks = task_dict['node_{}'.format(node_id)]
+    for task in tasks:
+        if task.name == 'node_{}_{}'.format(node_id, task_id):
+            #print('found {}_{} task'.format(node_id, task_id))
+            return task
+    return None
+
 def get_model_from_files(graph_path: str, commu_pair_path: str, taskset_path: str):
     
     task_dict = dict()
@@ -108,17 +116,17 @@ def get_model_from_files(graph_path: str, commu_pair_path: str, taskset_path: st
     for pair in commu_pair_json:
         _p_str = pair['ProducerTask']
         [_p_node_id, _p_task_id] = _p_str.split('_')
-        _p = task_dict['node_{}'.format(_p_node_id)][int(_p_task_id)]
+        _p = search_task(task_dict, _p_node_id, _p_task_id)
         #print("Task {}'s wcet is {}".format(_p_str, _p.wcet))
         _c_str = pair['ConsumerTask']
         [_c_node_id, _c_task_id] = _c_str.split('_')
-        _c = task_dict['node_{}'.format(_c_node_id)][int(_c_task_id)]
+        _c = search_task(task_dict, _c_node_id, _c_task_id)
         #print("Task {}'s wcet is {}".format(_c_str, _c.wcet))
         if 'ShaperTask' in pair:
             #P-S-C
             _s_str = pair['ShaperTask']
             [_s_node_id, _s_task_id] = _s_str.split('_')
-            _s = task_dict['node_{}'.format(_s_node_id)][int(_s_task_id)]
+            _s = search_task(task_dict, _s_node_id, _s_task_id)
             #print("Task {}'s wcet is {}".format(_s_str, _s.wcet))
             _p.set_virtual_link([_s])
             _s.set_virtual_link([_c])
